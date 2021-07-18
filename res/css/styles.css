@@ -1,0 +1,307 @@
+* {
+	box-sizing: border-box;
+	text-decoration: none;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	background-color: rgb(16, 16, 26);
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.show-on-desktop {display: none;}
+
+header {	
+	background: url("../img/backgrounds/main_bg_1.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	display: flex;
+	width: 100vw;
+	height: unset;
+}
+.banner {
+	display: flex;
+	justify-content: center;
+}
+.profile-img {
+	padding: 0;
+	margin: 0;
+	width: 80%;
+	height: auto;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: -1em;
+}
+
+.profile-description {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	vertical-align: middle;
+}
+.profile-description {
+	font-family: monospace;
+	font-variant: small-caps
+}
+
+.name {
+	font-size: 7vw;
+	font-weight: bolder;
+	color: whitesmoke;
+}
+.title {
+	font-size: 4vw;
+	font-weight: lighter;
+	color: #fdfdfd;
+}
+
+.first-letter {
+	color: rgba(255, 255, 7, 0.438)
+}
+.nav-items {
+	list-style-type: none;
+	display: flex;
+	font-family: sans-serif;
+	font-variant: normal;
+	font-weight: 400;
+	flex-direction: row;
+	font-size: .5em;
+}
+.nav-item {
+	text-align: center;
+	padding: 1em;
+	margin:  .2em;
+}
+
+.btn {
+	background: repeating-linear-gradient(45deg, #1e8fffa8 33%, dodgerblue 33%, #0080ff);
+	border-radius: .3em;
+	border: .15em #fff solid;
+}
+
+.btn > a {
+	color: #fff;
+}
+
+.btn:hover {
+	animation: rotate-bg .2s ease-in forwards;
+}
+.mobile-nav {
+	background-image: url("../img/backgrounds/bg_1.jpg");
+}
+
+article {
+
+	width: 100vw;
+	height: unset;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+article {
+	font-family: monospace;
+	font-variant: small-caps;
+	background-size: cover;
+	padding: 1em;
+}
+article h2 {
+	font-size: 3em;
+}
+.about {
+	background: url("../img/backgrounds/340452.png");
+}
+.education {
+	background: url("../img/backgrounds/862210.jpg");
+}
+.experience {
+	background: url("../img/backgrounds/1092758.jpg");
+}
+.tech-skill {
+	background: url("../img/backgrounds/197648.jpg");
+}
+.awards {
+	background: url("../img/backgrounds/1155075.png");
+}
+.about h2, .education h2, .experience h2, .tech-skill h2, .awards h2, p {
+	color: #fff;
+	margin-bottom: .5em;
+}
+
+.education {
+	display: flex;
+	justify-content: center;
+}
+.education h3 {
+	color: lightgreen;
+	font-size: 2em;
+}
+.education div {
+	color: yellow;
+}
+.experience div {
+	color: wheat;
+	font-size: 1.5vw;
+}
+p {
+	font-family: sans-serif;
+	font-variant: normal;
+}
+
+.experience ul, .tech-skill  ul {
+	list-style-type: none;
+	list-style-position: inside;
+}
+
+.experience ul li, .tech-skill ul li {
+	margin: 1em	;
+}
+.tech-skill ul li {
+	color: #fff;
+	font-size: 1.25em;
+}
+.awards ul {
+	display: flex;
+	justify-content: space-around;
+}
+
+.awards ul li img {
+	border: .2em #fff solid;
+}
+footer {
+	display: flex;
+	justify-content: center;
+	background: dodgerblue;
+	width: 100vw;
+	height: 5vh;
+}
+
+.card {
+	width: 33%;
+	display: inline-block;
+	border: .25em #fff solid;
+	border-radius: 1em;
+}
+
+.card-header {
+	padding: 1em .5em;
+}
+
+.card-body {
+	padding: 3em;
+}
+@keyframes rotate-bg {
+	0% {background: repeating-linear-gradient(63deg, #1e8fffa8 33%, dodgerblue 33%, #0080ff);}
+	25% {background: repeating-linear-gradient(81deg, #1e8fffa8 33%, dodgerblue 33%, #0080ff);}
+	50% {background: repeating-linear-gradient(99deg, #1e8fffa8 33%, dodgerblue 33%, #0080ff);}
+	75% {background: repeating-linear-gradient(117deg, #1e8fffa8 33%, dodgerblue 33%, #0080ff);}
+	100% {background: repeating-linear-gradient(135deg, #1e8fffa8 33%, dodgerblue 33%, #0080ff);}
+}
+
+@media only screen and (min-width: 650px) {
+	.col-sm-1 {width: 8.33%;}
+	.col-sm-2 {width: 16.66%;}
+	.col-sm-3 {width: 25%;}
+	.col-sm-4 {width: 33.33%;}
+	.col-sm-5 {width: 41.66%;}
+	.col-sm-6 {width: 50%;}
+	.col-sm-7 {width: 58.33%;}
+	.col-sm-8 {width: 66.66%;}
+	.col-sm-9 {width: 75%;}
+	.col-sm-10 {width: 83.33%;}
+	.col-sm-11 {width: 91.66%;}
+	.col-sm-12 {width: 100%;}
+	.show-on-mobile {display: none;}
+	.show-on-desktop {display: block;}
+	.nav-items {
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		font-size: .8vw;
+		font-weight: bold;
+		padding: 1em;
+	}
+	header {
+		height: 100vh
+	}
+	.profile-img {
+		/* width: 100%; */
+		height: auto;
+	}
+	article {
+		padding: 3em;
+		height: 100vh;
+	}
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+	.col-md-1 {width: 8.33%;}
+	.col-md-2 {width: 16.66%;}
+	.col-md-3 {width: 25%;}
+	.col-md-4 {width: 33.33%;}
+	.col-md-5 {width: 41.66%;}
+	.col-md-6 {width: 50%;}
+	.col-md-7 {width: 58.33%;}
+	.col-md-8 {width: 66.66%;}
+	.col-md-9 {width: 75%;}
+	.col-md-10 {width: 83.33%;}
+	.col-md-11 {width: 91.66%;}
+	.col-md-12 {width: 100%;}
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+	.col-lg-1 {width: 8.33%;}
+	.col-lg-2 {width: 16.66%;}
+	.col-lg-3 {width: 25%;}
+	.col-lg-4 {width: 33.33%;}
+	.col-lg-5 {width: 41.66%;}
+	.col-lg-6 {width: 50%;}
+	.col-lg-7 {width: 58.33%;}
+	.col-lg-8 {width: 66.66%;}
+	.col-lg-9 {width: 75%;}
+	.col-lg-10 {width: 83.33%;}
+	.col-lg-11 {width: 91.66%;}
+	.col-lg-12 {width: 100%;}
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+	.col-xl-1 {width: 8.33%;}
+	.col-xl-2 {width: 16.66%;}
+	.col-xl-3 {width: 25%;}
+	.col-xl-4 {width: 33.33%;}
+	.col-xl-5 {width: 41.66%;}
+	.col-xl-6 {width: 50%;}
+	.col-xl-7 {width: 58.33%;}
+	.col-xl-8 {width: 66.66%;}
+	.col-xl-9 {width: 75%;}
+	.col-xl-10 {width: 83.33%;}
+	.col-xl-11 {width: 91.66%;}
+	.col-xl-12 {width: 100%;}
+}
