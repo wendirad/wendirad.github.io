@@ -14,6 +14,8 @@ const Header = ({ personalInfo }: HeaderProps) => {
     { label: 'Education', href: '#education' },
     { label: 'Projects', href: '#projects' },
     { label: 'Skills', href: '#skills' },
+    { label: 'Awards', href: '#awards' },
+    { label: 'References', href: '#references' },
   ];
 
   return (
