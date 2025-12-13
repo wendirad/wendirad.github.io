@@ -1,13 +1,9 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function ScrollIndicator() {
   const [sectionIds, setSectionIds] = useState<string[]>([])
-  const [currentSection, setCurrentSection] = useState<string>('home')
-
-  const orderedSections = useMemo(() => sectionIds, [sectionIds])
-  const isAtEnd =
-    orderedSections.length > 0 &&
-    orderedSections.indexOf(currentSection) === orderedSections.length - 1
+  const [currentSection, setCurrentSection] = useState<string>('')
+  const [isAtEnd, setIsAtEnd] = useState(false)
 
   useEffect(() => {
     const sections = Array.from(document.querySelectorAll('section[id]')) as HTMLElement[]
@@ -18,13 +14,17 @@ export default function ScrollIndicator() {
       (entries) => {
         const visibleEntry = entries
           .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
+          .sort((a, b) => {
+            const rectA = a.boundingClientRect
+            const rectB = b.boundingClientRect
+            return Math.abs(rectA.top) - Math.abs(rectB.top)
+          })[0]
 
         if (visibleEntry?.target?.id) {
           setCurrentSection(visibleEntry.target.id)
         }
       },
-      { threshold: [0.4, 0.6, 0.75], rootMargin: '-20% 0px -40% 0px' }
+      { threshold: [0.1, 0.3, 0.5], rootMargin: '-10% 0px -50% 0px' }
     )
 
     sections.forEach((section) => observer.observe(section))
@@ -35,21 +35,61 @@ export default function ScrollIndicator() {
   }, [])
 
   const handleScrollNext = () => {
-    if (!orderedSections.length) return
+    if (!sectionIds.length) return
 
-    const currentIndex = orderedSections.indexOf(currentSection)
-    const nextIndex =
-      currentIndex >= 0 && currentIndex < orderedSections.length - 1
-        ? currentIndex + 1
-        : -1
+    let currentIndex = sectionIds.indexOf(currentSection)
+    
+    if (currentIndex === -1) {
+      const scrollPosition = window.scrollY + window.innerHeight / 2
+      const sections = Array.from(document.querySelectorAll('section[id]')) as HTMLElement[]
+      
+      for (let i = 0; i < sections.length; i++) {
+        const rect = sections[i].getBoundingClientRect()
+        const sectionTop = rect.top + window.scrollY
+        
+        if (scrollPosition < sectionTop) {
+          currentIndex = i - 1
+          break
+        }
+      }
+      
+      if (currentIndex === -1) {
+        currentIndex = 0
+      }
+    }
 
-    if (nextIndex === -1) return
-
-    const nextId = orderedSections[nextIndex]
+    const nextIndex = currentIndex < sectionIds.length - 1 ? currentIndex + 1 : sectionIds.length - 1
+    const nextId = sectionIds[nextIndex]
     const targetSection = document.getElementById(nextId)
 
-    targetSection?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    if (targetSection) {
+      const headerOffset = 80
+      const elementPosition = targetSection.getBoundingClientRect().top
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      })
+    }
   }
+
+  useEffect(() => {
+    const checkIfAtEnd = () => {
+      if (sectionIds.length === 0) {
+        setIsAtEnd(false)
+        return
+      }
+      
+      const atLastSection = currentSection === sectionIds[sectionIds.length - 1]
+      const nearBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 100
+      setIsAtEnd(atLastSection || nearBottom)
+    }
+
+    checkIfAtEnd()
+    window.addEventListener('scroll', checkIfAtEnd)
+    return () => window.removeEventListener('scroll', checkIfAtEnd)
+  }, [sectionIds, currentSection])
 
   if (isAtEnd) {
     return null
@@ -59,11 +99,11 @@ export default function ScrollIndicator() {
     <button
       type="button"
       onClick={handleScrollNext}
-      className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-30 animate-bounce cursor-pointer p-2 rounded-full bg-white/70 dark:bg-gray-800/70 shadow-md border border-gray-200 dark:border-gray-700 hover:bg-white dark:hover:bg-gray-800 transition-colors"
+      className="fixed right-4 top-1/2 -translate-y-1/2 z-30 cursor-pointer px-1.5 py-8 rounded-full bg-white/90 dark:bg-gray-800/90 shadow-lg border-2 border-gray-900 dark:border-gray-100 hover:bg-white dark:hover:bg-gray-800 transition-all backdrop-blur-sm"
       aria-label="Scroll to next section"
     >
       <svg
-        className="w-6 h-6 text-gray-700 dark:text-gray-300"
+        className="w-3 h-3 text-gray-900 dark:text-gray-100"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -71,7 +111,7 @@ export default function ScrollIndicator() {
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
-          strokeWidth={2}
+          strokeWidth={2.5}
           d="M19 14l-7 7m0 0l-7-7m7 7V3"
         />
       </svg>
