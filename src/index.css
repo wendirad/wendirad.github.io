@@ -18,6 +18,10 @@
   font-display: swap;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   font-family: 'Gilroy', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -40,11 +44,11 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #71797E;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #E5E4E2;
 }
 
 body {
@@ -86,12 +90,16 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.dark a {
+  color: #E5E4E2;
+}
+
 .dark a:hover {
-  color: #535bf2;
+  color: #71797E;
 }
 
 a:hover {
-  color: #747bff;
+  color: #E5E4E2;
 }
 
 .dark button {
