@@ -47,11 +47,11 @@ export default function InfoSection() {
   }
 
   return (
-    <section id="home" className="min-h-screen min-w-full flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
+    <section id="home" className="min-h-screen w-full flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12 overflow-x-hidden">
       <div className="max-w-6xl w-full">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           <div className="flex-1 order-2 lg:order-1 text-center lg:text-left">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-gray-900 dark:text-gray-100 whitespace-nowrap">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-gray-900 dark:text-gray-100 sm:whitespace-nowrap">
               {info.name}
             </h1>
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold mb-8 text-gray-700 dark:text-gray-300">
