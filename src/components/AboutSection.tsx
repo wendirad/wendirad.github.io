@@ -1,7 +1,62 @@
+import { useEffect } from 'react'
 import infoData from '../assets/data/info.json'
 
 export default function AboutSection() {
   const { info, education, experience } = infoData
+
+  // Add structured data for Google search
+  useEffect(() => {
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": info.name,
+      "jobTitle": info.title,
+      "email": info.email,
+      "telephone": info.phone,
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": info.location
+      },
+      "url": info.website,
+      "sameAs": [
+        info.socials.github,
+        info.socials.linkedin,
+        info.socials.telegram,
+        info.socials.x
+      ],
+      "alumniOf": education.map(edu => {
+        const org: any = {
+          "@type": "EducationalOrganization",
+          "name": edu.institution?.name || edu.institution
+        }
+        if (edu.institution?.url) {
+          org.url = edu.institution.url
+        }
+        return org
+      }),
+      "description": info.summary
+    }
+
+    const script = document.createElement('script')
+    script.type = 'application/ld+json'
+    script.text = JSON.stringify(structuredData)
+    script.id = 'about-structured-data'
+    
+    // Remove existing script if present
+    const existingScript = document.getElementById('about-structured-data')
+    if (existingScript) {
+      existingScript.remove()
+    }
+    
+    document.head.appendChild(script)
+
+    return () => {
+      const scriptToRemove = document.getElementById('about-structured-data')
+      if (scriptToRemove) {
+        scriptToRemove.remove()
+      }
+    }
+  }, [info, education])
 
   const formatDate = (dateString: string) => {
     const [year, month] = dateString.split('-')
@@ -70,9 +125,9 @@ export default function AboutSection() {
       className="min-h-screen min-w-full flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-24 pb-8"
     >
       <div className="max-w-6xl w-full">
-        <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center text-gray-900 dark:text-gray-100">
+        <h1 className="text-3xl sm:text-4xl font-bold mb-12 text-center text-gray-900 dark:text-gray-100">
           About Me
-        </h2>
+        </h1>
         
         <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-8 lg:gap-12 items-center">
           {/* Left Column - About Descriptions */}
