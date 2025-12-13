@@ -47,7 +47,7 @@ export default function InfoSection() {
   }
 
   return (
-    <section className="min-h-fit min-w-full flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
+    <section id="home" className="min-h-screen min-w-full flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
       <div className="max-w-6xl w-full">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           <div className="flex-1 order-2 lg:order-1 text-center lg:text-left">
@@ -118,6 +118,15 @@ export default function InfoSection() {
               className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-lg object-contain cursor-pointer transition-opacity hover:opacity-90"
             />
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+              <a 
+                href="#blogs"
+                className="px-6 py-3 border-2 border-gray-900 dark:border-gray-100 text-gray-900 dark:text-gray-100 rounded-lg font-semibold text-center hover:bg-gray-900 dark:hover:bg-gray-100 hover:text-gray-100 dark:hover:text-gray-900 transition-colors duration-200 flex items-center justify-center gap-2"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                </svg>
+                My Blogs
+              </a>
               <a 
                 href="#contact"
                 className="px-6 py-3 bg-gray-900 dark:bg-gray-100 text-gray-100 dark:text-gray-900 rounded-lg font-semibold text-center hover:bg-transparent dark:hover:bg-gray-900 hover:border-2 hover:border-gray-900 dark:hover:border-gray-100 hover:text-gray-900 dark:hover:text-gray-100 transition-all duration-200 flex items-center justify-center gap-2"

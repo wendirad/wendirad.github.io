@@ -2,8 +2,10 @@ export default function TopMenu() {
   const menuItems = [
     { id: 'home', label: 'Home', href: '#home' },
     { id: 'about', label: 'About', href: '#about' },
-    { id: 'experience', label: 'Experience', href: '#experience' },
+    { id: 'skills', label: 'Skills', href: '#skills' },
+    { id: 'work', label: 'Work', href: '#work' },
     { id: 'projects', label: 'Projects', href: '#projects' },
+    { id: 'more', label: 'More', href: '#more' },
     { id: 'contact', label: 'Contact', href: '#contact' },
   ]
 
