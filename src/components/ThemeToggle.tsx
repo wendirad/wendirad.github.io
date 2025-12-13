@@ -4,6 +4,10 @@ export default function ThemeToggle() {
   const [isDark, setIsDark] = useState(true)
 
   useEffect(() => {
+    const checkTheme = () => {
+      setIsDark(document.documentElement.classList.contains('dark'))
+    }
+    
     const stored = localStorage.getItem('wendiradcom-theme')
     const shouldBeDark = stored === 'light' ? false : (stored === 'dark' ? true : true)
     
@@ -13,6 +17,14 @@ export default function ThemeToggle() {
     } else {
       document.documentElement.classList.remove('dark')
     }
+    
+    const observer = new MutationObserver(checkTheme)
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    })
+    
+    return () => observer.disconnect()
   }, [])
 
   const toggleTheme = () => {

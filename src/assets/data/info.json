@@ -4,15 +4,20 @@
       "title": "Full Stack Python Developer",
       "phone": "(+251) 945 224 486",
       "email": "wendiradame@gmail.com",
-      "github": "https://github.com/wendirad",
-      "linkedin": "https://www.linkedin.com/in/wendirad-demelash-tiku",
+      "socials": {
+        "github": "https://github.com/wendirad",
+        "linkedin": "https://www.linkedin.com/in/wendirad-demelash",
+        "telegram": "https://t.me/zemerti",
+        "x": "https://x.com/wendiradd"
+      },
       "website": "https://wendirad.com",
       "location": "Adama, Ethiopia",
-      "summary": "A Python Developer with a strong background in Computer Science and Engineering, specializing in web development, AI, and machine learning. Proficient in Python, Django, PostgreSQL, MongoDB, PyTorch, TensorFlow, Git and Docker. Experienced in developing scalable solutions, machine learning models, and automation tools.",
+      "summary": "A Senior Developer experienced in web development and building robust AI and machine learning models, including advanced computer vision and generative AI systems. Crafts sophisticated automation tools, high-performance web scraping solutions, and interactive bot applications.",
       "image": {
-        "light": "https://i.ibb.co/d4VXqvqS/wendirad-light.png",
-        "dark": "https://i.ibb.co/5h5wzprv/wendirad-dark.png"
-      }
+        "light": "https://i.ibb.co/DHjt2bNX/light.png",
+        "dark": "https://i.ibb.co/fzMnt8Q7/dark.png"
+      },
+      "cv": "https://wendirad.com/wendirad-demelash-tiku-cv.pdf"
     },
     "experience": [
       {
