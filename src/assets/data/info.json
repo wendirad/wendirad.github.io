@@ -396,12 +396,14 @@
               "label": "Python",
               "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
               "tags": [
+                "Programming Language",
                 "AI",
                 "ML",
                 "Computer Vision",
                 "Data Science",
                 "Web Development",
-                "Automation"
+                "Automation",
+                "Backend"
               ]
             },
             {
@@ -409,8 +411,10 @@
               "label": "JavaScript",
               "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
               "tags": [
+                "Programming Language",
                 "Web Development",
-                "Frontend"
+                "Frontend",
+                "Backend"
               ]
             },
             {
@@ -418,8 +422,10 @@
               "label": "PHP",
               "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
               "tags": [
+                "Programming Language",
                 "Web Development",
-                "Backend"
+                "Backend",
+                "Server-side"
               ]
             },
             {
@@ -427,8 +433,10 @@
               "label": "Dart",
               "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg",
               "tags": [
+                "Programming Language",
                 "Mobile Development",
-                "Flutter"
+                "Flutter",
+                "Frontend"
               ]
             }
           ]
@@ -443,9 +451,11 @@
               "label": "PyTorch",
               "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg",
               "tags": [
+                "Library",
                 "AI",
                 "ML",
-                "Computer Vision"
+                "Computer Vision",
+                "Deep Learning"
               ]
             },
             {
@@ -453,8 +463,10 @@
               "label": "TensorFlow",
               "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg",
               "tags": [
+                "Library",
                 "AI",
-                "ML"
+                "ML",
+                "Deep Learning"
               ]
             },
             {
@@ -462,8 +474,10 @@
               "label": "Scikit Learn",
               "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg",
               "tags": [
+                "Library",
                 "ML",
-                "Data Science"
+                "Data Science",
+                "Data Analysis"
               ]
             },
             {
@@ -471,8 +485,10 @@
               "label": "SciPy",
               "icon": "https://raw.githubusercontent.com/scipy/scipy.org/main/static/images/logo.svg",
               "tags": [
+                "Library",
                 "Data Science",
-                "Scientific Computing"
+                "Scientific Computing",
+                "Numerical Computing"
               ]
             },
             {
@@ -480,7 +496,10 @@
               "label": "Pandas",
               "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg",
               "tags": [
-                "Data Analysis"
+                "Library",
+                "Data Analysis",
+                "Data Science",
+                "Data Manipulation"
               ]
             },
             {
@@ -488,8 +507,10 @@
               "label": "NumPy",
               "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg",
               "tags": [
+                "Library",
                 "Data Science",
-                "Numerical Computing"
+                "Numerical Computing",
+                "Scientific Computing"
               ]
             },
             {
@@ -497,7 +518,9 @@
               "label": "Matplotlib",
               "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matplotlib/matplotlib-original.svg",
               "tags": [
-                "Data Visualization"
+                "Library",
+                "Data Visualization",
+                "Data Science"
               ]
             },
             {
@@ -505,8 +528,10 @@
               "label": "Django",
               "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg",
               "tags": [
+                "Framework",
                 "Web Development",
-                "Backend"
+                "Backend",
+                "Python"
               ]
             },
             {
@@ -514,8 +539,11 @@
               "label": "Django Rest Framework",
               "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/djangorest/djangorest-original.svg",
               "tags": [
+                "Framework",
                 "API Development",
-                "Backend"
+                "Backend",
+                "Web Development",
+                "Python"
               ]
             },
             {
@@ -523,7 +551,10 @@
               "label": "Flutter",
               "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
               "tags": [
-                "Mobile Development"
+                "Framework",
+                "Mobile Development",
+                "Dart",
+                "Frontend"
               ]
             },
             {
@@ -531,8 +562,10 @@
               "label": "Aiogram",
               "icon": "https://avatars.githubusercontent.com/u/33784865?s=200&v=4",
               "tags": [
+                "Library",
                 "Bot Development",
-                "Telegram"
+                "Telegram",
+                "Python"
               ]
             }
           ]
@@ -548,7 +581,8 @@
               "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
               "tags": [
                 "Database",
-                "SQL"
+                "SQL",
+                "Relational Database"
               ]
             },
             {
@@ -557,7 +591,8 @@
               "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
               "tags": [
                 "Database",
-                "SQL"
+                "SQL",
+                "Relational Database"
               ]
             },
             {
@@ -566,7 +601,8 @@
               "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
               "tags": [
                 "Database",
-                "NoSQL"
+                "NoSQL",
+                "Document Store"
               ]
             },
             {
@@ -576,7 +612,8 @@
               "tags": [
                 "Database",
                 "NoSQL",
-                "Cloud"
+                "Cloud",
+                "Realtime Database"
               ]
             }
           ]
@@ -591,7 +628,9 @@
               "label": "Git",
               "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
               "tags": [
-                "Version Control"
+                "DevOps",
+                "Version Control",
+                "Tool"
               ]
             },
             {
@@ -599,7 +638,9 @@
               "label": "Docker",
               "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
               "tags": [
-                "Containerization"
+                "DevOps",
+                "Containerization",
+                "Tool"
               ]
             }
           ]
@@ -614,7 +655,9 @@
               "label": "VS Code",
               "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",
               "tags": [
-                "Editor"
+                "IDE",
+                "Editor",
+                "Tool"
               ]
             },
             {
@@ -623,7 +666,9 @@
               "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pycharm/pycharm-original.svg",
               "tags": [
                 "IDE",
-                "Python"
+                "Editor",
+                "Python",
+                "Tool"
               ]
             },
             {
@@ -631,8 +676,10 @@
               "label": "Jupyter Notebook",
               "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original-wordmark.svg",
               "tags": [
+                "IDE",
                 "Notebook",
-                "Data Science"
+                "Data Science",
+                "Tool"
               ]
             },
             {
@@ -640,7 +687,9 @@
               "label": "Vim",
               "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vim/vim-original.svg",
               "tags": [
-                "Editor"
+                "Editor",
+                "IDE",
+                "Tool"
               ]
             }
           ]
@@ -655,6 +704,7 @@
               "label": "Linux",
               "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg",
               "tags": [
+                "Operating System",
                 "OS"
               ]
             },
@@ -663,6 +713,7 @@
               "label": "Windows",
               "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows11/windows11-original.svg",
               "tags": [
+                "Operating System",
                 "OS"
               ]
             },
@@ -671,6 +722,7 @@
               "label": "macOS",
               "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg",
               "tags": [
+                "Operating System",
                 "OS"
               ]
             }
