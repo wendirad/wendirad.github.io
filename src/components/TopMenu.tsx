@@ -10,7 +10,7 @@ export default function TopMenu() {
   ]
 
   return (
-    <nav className="fixed top-6 left-0 right-0 z-40 flex justify-center">
+    <nav className="fixed top-6 left-0 right-0 z-40 hidden md:flex justify-center">
       <div className="flex gap-6 px-8 py-2 bg-tertiary-dark/50 dark:bg-tertiary-light/50 backdrop-blur-md rounded-full border border-white/20 dark:border-white/10 shadow-lg dark:shadow-white/10">
         {menuItems.map((item) => (
           <a

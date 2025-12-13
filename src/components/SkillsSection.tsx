@@ -113,7 +113,7 @@ export default function SkillsSection() {
   return (
     <section
       id="skills"
-      className="min-h-screen min-w-full flex items-center px-4 sm:px-6 lg:px-8 py-16"
+      className="min-h-screen w-full flex items-center px-4 sm:px-6 lg:px-8 py-16 overflow-x-hidden"
     >
       <div className="max-w-6xl w-full mx-auto">
         <div className="text-center mb-10">
@@ -123,7 +123,7 @@ export default function SkillsSection() {
         </div>
 
         {tagPills.length > 0 && (
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12">
+          <div className="hidden md:flex flex-wrap justify-center gap-2 sm:gap-3 mb-12">
             {tagPills.map((tag) => (
               <button
                 key={tag}

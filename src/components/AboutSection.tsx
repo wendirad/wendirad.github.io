@@ -122,7 +122,7 @@ export default function AboutSection() {
   return (
     <section 
       id="about" 
-      className="min-h-screen min-w-full flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-24 pb-8"
+      className="min-h-screen w-full flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-24 pb-8 overflow-x-hidden"
     >
       <div className="max-w-6xl w-full">
         <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center text-gray-900 dark:text-gray-100">
