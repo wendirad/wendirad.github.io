@@ -4,7 +4,7 @@ export default function ThemeToggle() {
   const [isDark, setIsDark] = useState(true)
 
   useEffect(() => {
-    const stored = localStorage.getItem('theme')
+    const stored = localStorage.getItem('wendiradcom-theme')
     const shouldBeDark = stored === 'light' ? false : (stored === 'dark' ? true : true)
     
     setIsDark(shouldBeDark)
@@ -21,10 +21,10 @@ export default function ThemeToggle() {
     
     if (newIsDark) {
       document.documentElement.classList.add('dark')
-      localStorage.setItem('theme', 'dark')
+      localStorage.setItem('wendiradcom-theme', 'dark')
     } else {
       document.documentElement.classList.remove('dark')
-      localStorage.setItem('theme', 'light')
+      localStorage.setItem('wendiradcom-theme', 'light')
     }
   }
 
