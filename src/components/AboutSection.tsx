@@ -135,7 +135,7 @@ export default function AboutSection() {
             {descriptions.map((description, index) => (
               <p 
                 key={index}
-                className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed text-justify"
+                className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed text-left"
               >
                 {description}
               </p>
