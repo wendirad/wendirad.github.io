@@ -1,5 +1,3 @@
-// src/utils/theme.ts
-
 import { useEffect, useState } from "react";
 
 const THEME_STORAGE_KEY = "wendiradcom-theme";

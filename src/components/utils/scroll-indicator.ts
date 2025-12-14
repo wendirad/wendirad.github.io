@@ -1,5 +1,3 @@
-// src/utils/section-indicator.ts
-
 import { useEffect, useState } from "react";
 
 export function useSectionIndicator() {

@@ -141,6 +141,7 @@ class DataProvider {
   educations: Education[];
   experiences: Experience[];
   projects: Project[];
+  skills: Skills;
   technical_skills: TechnicalSkill[];
   soft_skills: SoftSkill[];
   awards: Award[];
@@ -151,6 +152,7 @@ class DataProvider {
     this.educations = data.educations;
     this.experiences = data.experiences;
     this.projects = data.projects;
+    this.skills = data.skills;
     this.technical_skills = data.skills.technical;
     this.soft_skills = data.skills.soft;
     this.awards = data.awards;
