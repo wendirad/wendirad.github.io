@@ -2,13 +2,14 @@ import "./App.css";
 
 import ScrollIndicator from "./components/ui/scroll-indicator";
 import ThemeToggle from "./components/ui/theme-toggle";
+import SchemeOrg from "./components/ui/scheme-org";
+import NavigationBar from "./components/ui/navigation-bar";
 
 import DataProvider from "./data_provider/data_provider";
 import rawUserData from "./assets/data/data.json";
 
-import SchemeOrg from "./components/ui/scheme-org";
-import NavigationBar from "./components/ui/navigation-bar";
 import Home from "./components/sections/home";
+import About from "./components/sections/about/about";
 
 const NAV_ITEMS: Array<{
   id: string;
@@ -34,6 +35,11 @@ function App() {
       <ScrollIndicator />
 
       <Home pi={userData.personalInformation} />
+      <About
+        pi={userData.personalInformation}
+        educations={userData.educations}
+        experiences={userData.experiences}
+      />
 
       <SchemeOrg userData={userData} />
     </>
