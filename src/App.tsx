@@ -11,6 +11,7 @@ import rawUserData from "./assets/data/data.json";
 import Home from "./components/sections/home";
 import About from "./components/sections/about/about";
 import SkillsSummary from "./components/sections/skills/skills";
+import WorkHistory from "./components/sections/work-history/work-history";
 
 const NAV_ITEMS: Array<{
   id: string;
@@ -42,6 +43,7 @@ function App() {
         experiences={userData.experiences}
       />
       <SkillsSummary skills={userData.skills} />
+      <WorkHistory experiences={userData.experiences} />
 
       <SchemeOrg userData={userData} />
     </>
