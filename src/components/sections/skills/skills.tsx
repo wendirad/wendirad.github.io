@@ -8,8 +8,7 @@ import TechnicalSkillsSection from "./ui/technical-skills";
 export default function SkillsSummary({ skills }: { skills: Skills }) {
   const { tagPills, filteredSkills, activeTags, toggleTag } =
     useSkillsFilter(skills);
-  const { leftPositions, rightPositions, connectionNodes, softItems } =
-    useSoftSkillsLayout(skills);
+  const { softItems } = useSoftSkillsLayout(skills);
 
   return (
     <section
@@ -29,7 +28,7 @@ export default function SkillsSummary({ skills }: { skills: Skills }) {
           toggleTag={toggleTag}
         />
 
-        <div className="space-y-12">
+        <div>
           {/* Technical */}
           <div className="space-y-5">
             <div className="flex items-center gap-3">
@@ -43,16 +42,15 @@ export default function SkillsSummary({ skills }: { skills: Skills }) {
           </div>
 
           {/* Soft */}
-          <div className="space-y-2">
+          <div className="space-y-5 mt-12">
             <div className="flex items-center gap-3">
               <div className="h-px flex-1 bg-gradient-to-r from-transparent via-gray-300 to-transparent dark:via-gray-700" />
+              <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 whitespace-nowrap">
+                Soft Skills
+              </h3>
               <div className="h-px flex-1 bg-gradient-to-r from-transparent via-gray-300 to-transparent dark:via-gray-700" />
             </div>
-            <SoftSkillsDesktop
-              leftPositions={leftPositions}
-              rightPositions={rightPositions}
-              connectionNodes={connectionNodes}
-            />
+            <SoftSkillsDesktop softItems={softItems} />
             <SoftSkillsMobile softItems={softItems} />
           </div>
         </div>
