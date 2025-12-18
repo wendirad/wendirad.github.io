@@ -1,6 +1,5 @@
 import { useMemo, useState } from "react";
 import type {
-  Skill,
   Skills,
   TechnicalSkill,
 } from "../../../data_provider/data_provider";
