@@ -48,7 +48,7 @@
       "institution": {
         "name"    : "Turing",
         "url"     : "https://turing.com/",
-        "logo"    : "/imgs/turing_logo.svg",
+        "logo"    : "/imgs/turing_logo.png",
         "location": "USA (Remote)"
       },
       "mode": "remote",
@@ -84,7 +84,7 @@
       "institution": {
         "name"    : "Backos Technology",
         "url"     : "https://backos.com/",
-        "logo"    : "/imgs/backos_logo.svg",
+        "logo"    : "/imgs/backos_logo.png",
         "location": "Adama, Ethiopia"
       },
       "mode": "on-site",
@@ -119,7 +119,7 @@
       "institution": {
         "name"    : "Divergent Technology",
         "url"     : "https://divergent.com/",
-        "logo"    : "/imgs/divergent_logo.svg",
+        "logo"    : "/imgs/divergent_logo.png",
         "location": "Adama, Ethiopia"
       },
       "mode": "on-site",
@@ -137,7 +137,7 @@
       "institution": {
         "name"    : "Backos Technology",
         "url"     : "https://backos.com/",
-        "logo"    : "/imgs/backos_logo.svg",
+        "logo"    : "/imgs/backos_logo.png",
         "location": "Adama, Ethiopia"
       },
       "mode": "on-site",
