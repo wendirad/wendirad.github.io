@@ -48,7 +48,7 @@
       "institution": {
         "name"    : "Turing",
         "url"     : "https://turing.com/",
-        "logo"    : "/imgs/turing_logo.svg",
+        "logo"    : "/imgs/turing_logo.png",
         "location": "USA (Remote)"
       },
       "mode": "remote",
@@ -84,7 +84,7 @@
       "institution": {
         "name"    : "Backos Technology",
         "url"     : "https://backos.com/",
-        "logo"    : "/imgs/backos_logo.svg",
+        "logo"    : "/imgs/backos_logo.png",
         "location": "Adama, Ethiopia"
       },
       "mode": "on-site",
@@ -119,7 +119,7 @@
       "institution": {
         "name"    : "Divergent Technology",
         "url"     : "https://divergent.com/",
-        "logo"    : "/imgs/divergent_logo.svg",
+        "logo"    : "/imgs/divergent_logo.png",
         "location": "Adama, Ethiopia"
       },
       "mode": "on-site",
@@ -137,7 +137,7 @@
       "institution": {
         "name"    : "Backos Technology",
         "url"     : "https://backos.com/",
-        "logo"    : "/imgs/backos_logo.svg",
+        "logo"    : "/imgs/backos_logo.png",
         "location": "Adama, Ethiopia"
       },
       "mode": "on-site",
@@ -536,59 +536,59 @@
         "label": "Soft Skills",
         "icon": null,
         "skills": [
-          {"id": "teamwork", "label": "Teamwork", "icon": null, "tags": []},
+          {"id": "teamwork", "label": "Teamwork", "icon": "https://api.iconify.design/fa6-solid/users.svg?color=%233B82F6", "tags": []},
           {
             "id": "leadership",
             "label": "Leadership",
-            "icon": null,
+            "icon": "https://api.iconify.design/fa6-solid/crown.svg?color=%23F59E0B",
             "tags": []
           },
           {
             "id": "adaptability",
             "label": "Adaptability",
-            "icon": null,
+            "icon": "https://api.iconify.design/fa6-solid/arrows-rotate.svg?color=%2310B981",
             "tags": []
           },
           {
             "id": "discipline",
             "label": "Discipline",
-            "icon": null,
+            "icon": "https://api.iconify.design/fa6-solid/award.svg?color=%238B5CF6",
             "tags": []
           },
           {
             "id": "problem_solving",
             "label": "Problem-Solving",
-            "icon": null,
+            "icon": "https://api.iconify.design/fa6-solid/lightbulb.svg?color=%23FBBF24",
             "tags": []
           },
           {
             "id": "collaboration",
             "label": "Collaboration",
-            "icon": null,
+            "icon": "https://api.iconify.design/fa6-solid/handshake.svg?color=%2314B8A6",
             "tags": []
           },
           {
             "id": "time_management",
             "label": "Time Management",
-            "icon": null,
+            "icon": "https://api.iconify.design/fa6-solid/clock.svg?color=%23EF4444",
             "tags": []
           },
           {
             "id": "attention_to_detail",
             "label": "Attention to Detail",
-            "icon": null,
+            "icon": "https://api.iconify.design/fa6-solid/magnifying-glass.svg?color=%236366F1",
             "tags": []
           },
           {
             "id": "proactive_approach",
             "label": "Proactive Approach",
-            "icon": null,
+            "icon": "https://api.iconify.design/fa6-solid/rocket.svg?color=%23F97316",
             "tags": []
           },
           {
             "id": "effective_communication",
             "label": "Effective Communication",
-            "icon": null,
+            "icon": "https://api.iconify.design/fa6-solid/comments.svg?color=%23EC4899",
             "tags": []
           }
         ]

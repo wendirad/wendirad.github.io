@@ -56,36 +56,10 @@ export function useSkillsFilter(skills: Skills) {
 }
 
 export function useSoftSkillsLayout(skills: Skills) {
-  const softGroup = skills.soft[0];
-  const softItems = softGroup?.skills || [];
+  const softItems = useMemo(() => {
+    const softGroup = skills.soft[0];
+    return softGroup?.skills || [];
+  }, [skills.soft]);
 
-  const leftItems = softItems.slice(0, Math.ceil(softItems.length / 2));
-  const rightItems = softItems.slice(Math.ceil(softItems.length / 2));
-
-  const computePositions = (items: Skill[], side: "left" | "right") =>
-    items.map((skill, i) => {
-      const t = items.length <= 1 ? 0.5 : i / (items.length - 1);
-      const span = 70;
-      const angleDeg = -(span / 2) + t * span;
-      const angleRad = (angleDeg * Math.PI) / 180;
-      const radius = 34 + 12 * Math.cos(angleRad);
-      const x = 50 + (side === "left" ? -1 : 1) * radius;
-      const y = 30 + 22 * Math.sin(angleRad);
-      return { skill, x, y };
-    });
-
-  const leftPositions = useMemo(
-    () => computePositions(leftItems, "left"),
-    [leftItems]
-  );
-  const rightPositions = useMemo(
-    () => computePositions(rightItems, "right"),
-    [rightItems]
-  );
-  const connectionNodes = useMemo(
-    () => [...leftPositions, ...rightPositions],
-    [leftPositions, rightPositions]
-  );
-
-  return { softItems, leftPositions, rightPositions, connectionNodes };
+  return { softItems };
 }
