@@ -1,7 +1,7 @@
 export default function LinkIcon() {
   return (
     <svg
-      className="w-3 h-3 text-gray-600 dark:text-gray-400"
+      className="w-3 h-3 text-secondary-light dark:text-secondary-dark"
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"

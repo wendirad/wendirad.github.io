@@ -3,6 +3,7 @@ import { formatDateRange, getExperienceColor, getExperienceDescription } from ".
 import RemoteIcon from "../../../icons/remote";
 import OfficeIcon from "../../../icons/office";
 import BriefcaseIcon from "../../../icons/briefcase";
+import LinkIcon from "../../../icons/link";
 
 interface ExperienceNodeProps {
   experience: Experience;
@@ -43,9 +44,10 @@ export default function ExperienceNode({ experience, index }: ExperienceNodeProp
                     href={experience.institution.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-bold text-secondary-light dark:text-secondary-dark text-sm tracking-widest uppercase hover:underline"
+                    className="font-bold text-secondary-light dark:text-secondary-dark text-sm tracking-widest uppercase hover:underline flex items-center gap-1.5"
                   >
                     {experience.institution.name}
+                    <LinkIcon />
                   </a>
                 ) : (
                   <h4 className="font-bold text-secondary-light dark:text-secondary-dark text-sm tracking-widest uppercase">

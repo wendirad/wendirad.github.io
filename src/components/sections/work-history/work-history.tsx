@@ -10,7 +10,7 @@ const WorkHistory: React.FC<WorkHistoryProps> = ({ experiences }) => {
   return (
     <section
       id="work"
-      className="min-h-screen w-full flex flex-col overflow-x-hidden relative bg-white dark:bg-bg-dark"
+      className="min-h-screen w-full flex flex-col overflow-x-hidden relative"
     >
       <div className="max-w-7xl mx-auto w-full flex-grow flex flex-col justify-center px-6 md:px-12 py-16">
         <TimelineHeader />
