@@ -65,6 +65,12 @@ export default function TechnicalSkillsSection({
               "devops"
               "ides";
           }
+          .tech-skills-grid-item-lib {
+            margin-top: 0;
+          }
+          .tech-skills-grid-item-ides {
+            margin-top: 0;
+          }
         }
       `}</style>
       <div className="grid gap-14 tech-skills-grid">
@@ -81,12 +87,12 @@ export default function TechnicalSkillsSection({
         {libraries && (
           <div className="tech-skills-grid-item-lib">
             <SkillGroupCard group={libraries} activeTags={activeTags} />
-          </div>
+        </div>
         )}
-        {frameworks && (
+          {frameworks && (
           <div className="tech-skills-grid-item-frameworks">
             <SkillGroupCard group={frameworks} activeTags={activeTags} />
-          </div>
+        </div>
         )}
         {operatingSystems && (
           <div className="tech-skills-grid-item-os">
@@ -101,7 +107,7 @@ export default function TechnicalSkillsSection({
         {ides && (
           <div className="tech-skills-grid-item-ides">
             <SkillGroupCard group={ides} activeTags={activeTags} />
-          </div>
+        </div>
         )}
       </div>
     </>

@@ -1,13 +1,44 @@
 import { useEffect, useState } from "react";
 
 export function useSectionIndicator() {
-  const [sections] = useState<string[]>(() =>
-    (Array.from(document.querySelectorAll("section[id]")) as HTMLElement[]).map(
-      (el) => el.id
-    )
-  );
+  const [sections, setSections] = useState<string[]>([]);
   const [currentSection, setCurrentSection] = useState<string>("");
   const [isAtEnd, setIsAtEnd] = useState(false);
+
+  // Get sections after component mounts
+  useEffect(() => {
+    const getSections = () => {
+      const sectionElements = Array.from(
+        document.querySelectorAll("section[id]")
+      ) as HTMLElement[];
+      const sectionIds = sectionElements.map((el) => el.id).filter(Boolean);
+      if (sectionIds.length > 0) {
+        setSections(sectionIds);
+      }
+    };
+
+    // Initial load
+    getSections();
+
+    // Check multiple times to catch dynamically rendered sections
+    const timeouts = [
+      setTimeout(getSections, 100),
+      setTimeout(getSections, 500),
+      setTimeout(getSections, 1000),
+    ];
+
+    // Also listen for DOM changes
+    const observer = new MutationObserver(getSections);
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+
+    return () => {
+      timeouts.forEach(clearTimeout);
+      observer.disconnect();
+    };
+  }, []);
 
   useEffect(() => {
     if (sections.length === 0) return;
