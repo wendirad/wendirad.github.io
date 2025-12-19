@@ -11,6 +11,7 @@ import rawUserData from "./assets/data/data.json";
 import Home from "./components/sections/home";
 import About from "./components/sections/about/about";
 import SkillsSummary from "./components/sections/skills/skills";
+import ReachOut from "./components/sections/reach-out/reach-out";
 import WorkHistory from "./components/sections/work-history/work-history";
 
 const NAV_ITEMS: Array<{
@@ -45,6 +46,7 @@ function App() {
         skills={userData.skills}
         educations={userData.educations}
       />
+      <ReachOut pi={userData.personalInformation} />
       <WorkHistory experiences={userData.experiences} />
 
       <SchemeOrg userData={userData} />

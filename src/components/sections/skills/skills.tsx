@@ -42,7 +42,7 @@ export default function SkillsSummary({
           </div>
 
           {/* Education and Soft Skills */}
-          <div className="mb-48 grid lg:grid-cols-2 gap-24 items-start">
+          <div className="grid lg:grid-cols-2 gap-24 items-start">
             {/* Education Column */}
             <div className="space-y-16">
               <div>
