@@ -39,10 +39,12 @@ function App() {
       <Home pi={userData.personalInformation} />
       <About
         pi={userData.personalInformation}
-        educations={userData.educations}
         experiences={userData.experiences}
       />
-      <SkillsSummary skills={userData.skills} />
+      <SkillsSummary
+        skills={userData.skills}
+        educations={userData.educations}
+      />
       <WorkHistory experiences={userData.experiences} />
 
       <SchemeOrg userData={userData} />
@@ -51,3 +53,4 @@ function App() {
 }
 
 export default App;
+

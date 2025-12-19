@@ -1,81 +1,42 @@
 import type { Education } from "../../../data_provider/data_provider";
-import EducationIcon from "../../icons/education";
 import { formatDate } from "./about_utils";
 
 export default function Education({ educations }: { educations: Education[] }) {
   return (
-    <div className="space-y-4">
-      {educations.map((education) => (
+    <div className="mt-12">
+      {educations.map((education, idx) => (
         <div
           key={education.id}
-          className="bg-secondary-light/30 dark:bg-secondary-dark/30 backdrop-blur-sm rounded-lg p-4 border border-secondary-light/30 dark:border-secondary-dark/30"
+          className="relative pl-12 pb-12 group last:pb-0"
         >
-          <div className="flex items-start gap-3">
-            {education.institution.logo ? (
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-white flex items-center justify-center">
-                <img
-                  src={education.institution.logo}
-                  alt={education.institution.name}
-                  className="w-full h-full object-contain"
-                />
-              </div>
-            ) : (
-              <div className="flex-shrink-0 mt-1">
-                <EducationIcon />
-              </div>
-            )}
-            <div className="flex-1 text-left">
-              <h4 className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-1">
-                {education.degree.toUpperCase()} in {education.major}
-              </h4>
-              {education.institution.url ? (
-                <a
-                  href={education.institution.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs text-gray-700 dark:text-gray-300 mb-1 hover:text-gray-900 dark:hover:text-gray-100 transition-colors inline-flex items-center gap-1"
-                >
-                  {education.institution.name}
-                  <svg
-                    className="w-3 h-3"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                    />
-                  </svg>
-                </a>
-              ) : (
-                <p className="text-xs text-gray-700 dark:text-gray-300 mb-1">
-                  {education.institution.name}
-                </p>
-              )}
-              <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">
-                {education.institution.location}
-              </p>
-              <div className="flex flex-col gap-0.5">
-                <p className="text-xs text-gray-600 dark:text-gray-400">
-                  {formatDate(education.date_range.start_date)} -{" "}
-                  {education.date_range.end_date
-                    ? formatDate(education.date_range.end_date)
-                    : "Present"}
-                </p>
-                <p className="text-xs font-medium text-gray-700 dark:text-gray-300">
-                  GPA: {education.gpa}
-                </p>
-              </div>
-              {education.notes && (
-                <p className="text-xs text-gray-600 dark:text-gray-400 mt-1 italic">
-                  {education.notes}
-                </p>
-              )}
-            </div>
+          <div className="absolute left-0 top-0 w-px h-full bg-secondary-light/30 dark:bg-secondary-dark/30 group-last:h-0"></div>
+          <div className="absolute left-[-4px] top-2 w-2 h-2 rounded-full bg-tertiary-light dark:bg-tertiary-dark ring-4 ring-secondary-light/20 dark:ring-secondary-dark/20"></div>
+
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-2">
+            <h3 className="text-xl font-black text-gray-900 dark:text-gray-100 uppercase italic tracking-tighter">
+              {education.degree.toUpperCase()} in {education.major}
+            </h3>
+            <span className="text-[10px] font-black tracking-widest text-secondary-light dark:text-secondary-dark uppercase bg-secondary-light/20 dark:bg-secondary-dark/20 px-3 py-1 rounded-full">
+              {formatDate(education.date_range.start_date)} -{" "}
+              {education.date_range.end_date
+                ? formatDate(education.date_range.end_date)
+                : "Present"}
+            </span>
           </div>
+          <div className="flex items-center gap-3 mb-4">
+            <p className="text-secondary-light dark:text-secondary-dark font-bold text-sm uppercase tracking-wide">
+              {education.institution.name}
+            </p>
+            <span className="w-1 h-1 rounded-full bg-secondary-light/50 dark:bg-secondary-dark/50"></span>
+            <span className="text-tertiary-light dark:text-tertiary-dark font-black text-sm">
+              GPA: {education.gpa}
+            </span>
+          </div>
+          {education.notes && (
+            <p className="text-secondary-light/80 dark:text-secondary-dark/80 text-sm italic">
+              {education.notes}
+            </p>
+          )}
         </div>
       ))}
     </div>

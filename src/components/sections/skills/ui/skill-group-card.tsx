@@ -6,53 +6,65 @@ import {
 interface SkillGroupCardProps {
   group: TechnicalSkill;
   extraClass?: string;
+  activeTags?: Set<string>;
 }
 
 export default function SkillGroupCard({
   group,
   extraClass = "",
+  activeTags = new Set(),
 }: SkillGroupCardProps) {
-  return (
-    <div
-      className={`rounded-lg p-3 sm:p-4 md:p-5 shadow-sm bg-secondary-light/40 dark:bg-secondary-dark/40 ${extraClass}`}
-    >
-      <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-        {group.icon && (
-          <img
-            src={group.icon}
-            alt={group.label}
-            className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 object-contain"
-            loading="lazy"
-          />
-        )}
-        <h4 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100">
-          {group.label}
-        </h4>
-      </div>
+  const isIDEs = group.id === "ides";
+  const isFrameworks = group.id === "frameworks";
+  const isOS = group.id === "operating_systems";
+  const isDevOps = group.id === "devops";
+  const isLibraries = group.id === "libraries";
+  const gridCols = isIDEs ? "grid-cols-4" : isFrameworks || isOS ? "grid-cols-3" : isDevOps ? "grid-cols-2" : isLibraries ? "grid-cols-4" : "grid-cols-2";
 
-      <div className="flex flex-wrap gap-2">
-        {group.skills.map((skill: Skill) => (
+  return (
+    <div className={`space-y-4 ${extraClass}`}>
+      <h3 className="text-[10px] font-black tracking-[0.4em] uppercase text-secondary-light dark:text-secondary-dark border-b border-secondary-light/30 dark:border-secondary-dark/30 pb-4">
+        {group.label}
+      </h3>
+      <div className={`grid ${gridCols} gap-4`}>
+        {group.skills.map((skill: Skill) => {
+          const skillWithMatch = skill as Skill & { matchesFilter?: boolean };
+          const matchesFilter = skillWithMatch.matchesFilter ?? (activeTags.size === 0 || (skill.tags?.some((t) => activeTags.has(t.toUpperCase())) ?? false));
+          const shouldDim = activeTags.size > 0 && !matchesFilter;
+          
+          return (
           <div
             key={skill.id}
-            className="flex items-center gap-1.5 sm:gap-2 px-2 py-1.5 sm:px-3 sm:py-2 bg-white/60 dark:bg-gray-900/60 rounded-lg shadow-sm"
+            className={`group flex flex-col items-center p-4 bg-secondary-light/30 dark:bg-secondary-dark/30 border border-secondary-light/30 dark:border-secondary-dark/30 rounded-2xl hover:border-tertiary-light dark:hover:border-tertiary-dark hover:shadow-xl hover:shadow-secondary-light/20 dark:hover:shadow-secondary-dark/20 transition-all duration-300 ${
+              shouldDim ? 'opacity-30 pointer-events-none' : ''
+            }`}
           >
             {skill.icon ? (
-              <img
-                src={skill.icon}
-                alt={skill.label}
-                className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 object-contain"
-                loading="lazy"
-              />
+              <div className={`w-10 h-10 mb-3 transition-all ${
+                activeTags.size > 0 && matchesFilter 
+                  ? '' 
+                  : activeTags.size > 0 
+                    ? 'grayscale' 
+                    : 'grayscale group-hover:grayscale-0'
+              }`}>
+                <img
+                  src={skill.icon}
+                  alt={skill.label}
+                  className="w-full h-full object-contain"
+                  loading="lazy"
+                />
+              </div>
             ) : (
-              <div className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 rounded-full bg-tertiary-light/60 dark:bg-tertiary-dark/60 flex items-center justify-center text-xs font-semibold text-gray-900 dark:text-gray-100">
+              <div className="w-10 h-10 mb-3 rounded-full bg-tertiary-light/60 dark:bg-tertiary-dark/60 flex items-center justify-center text-xs font-semibold text-gray-900 dark:text-gray-100 group-hover:scale-110 transition-all">
                 {skill.label.charAt(0).toUpperCase()}
               </div>
             )}
-            <span className="text-xs sm:text-sm font-semibold text-gray-900 dark:text-gray-100">
+            <span className="text-[10px] font-bold uppercase tracking-widest text-secondary-light dark:text-secondary-dark group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors">
               {skill.label}
             </span>
           </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

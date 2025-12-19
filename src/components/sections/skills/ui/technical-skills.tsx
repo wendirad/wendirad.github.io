@@ -3,84 +3,107 @@ import SkillGroupCard from "./skill-group-card";
 
 interface TechnicalSkillsSectionProps {
   groups: TechnicalSkill[];
+  activeTags: Set<string>;
 }
 
 export default function TechnicalSkillsSection({
   groups,
+  activeTags,
 }: TechnicalSkillsSectionProps) {
   const programming = groups.find((g) => g.id === "programming_languages");
-  const frameworks = groups.find((g) => g.id === "frameworks_and_libraries");
   const databases = groups.find((g) => g.id === "databases");
+  const libraries = groups.find((g) => g.id === "libraries");
+  const frameworks = groups.find((g) => g.id === "frameworks");
+  const operatingSystems = groups.find((g) => g.id === "operating_systems");
   const ides = groups.find((g) => g.id === "ides");
   const devops = groups.find((g) => g.id === "devops");
-  const operatingSystems = groups.find((g) => g.id === "operating_systems");
-
-  const mainIds = new Set(
-    [
-      programming?.id,
-      frameworks?.id,
-      databases?.id,
-      ides?.id,
-      devops?.id,
-      operatingSystems?.id,
-    ].filter(Boolean)
-  );
-
-  const remaining = groups.filter((g) => !mainIds.has(g.id));
 
   return (
     <>
       <style>{`
-        .tech-skills-grid-item-languages,
-        .tech-skills-grid-item-frameworks,
-        .tech-skills-grid-item-others {
-          grid-area: unset;
+        .tech-skills-grid {
+          grid-template-columns: repeat(7, 1fr);
+          grid-template-areas:
+            "pl pl db db frameworks frameworks frameworks"
+            "pl pl db db os os os"
+            "lib lib lib lib devops devops devops"
+            "lib lib lib lib . . ."
+            "ides ides ides ides ides ides ides";
         }
-        @media (min-width: 768px) {
+        .tech-skills-grid-item-pl {
+          grid-area: pl;
+        }
+        .tech-skills-grid-item-db {
+          grid-area: db;
+        }
+        .tech-skills-grid-item-lib {
+          grid-area: lib;
+          margin-top: -8rem;
+        }
+        .tech-skills-grid-item-frameworks {
+          grid-area: frameworks;
+        }
+        .tech-skills-grid-item-os {
+          grid-area: os;
+        }
+        .tech-skills-grid-item-devops {
+          grid-area: devops;
+        }
+        .tech-skills-grid-item-ides {
+          grid-area: ides;
+          margin-top: -6rem;
+        }
+        @media (max-width: 767px) {
           .tech-skills-grid {
-            grid-template-areas: "languages languages" "frameworks others" "frameworks others";
-          }
-          .tech-skills-grid-item-languages {
-            grid-area: languages;
-          }
-          .tech-skills-grid-item-frameworks {
-            grid-area: frameworks;
-          }
-          .tech-skills-grid-item-others {
-            grid-area: others;
+            grid-template-columns: 1fr;
+            grid-template-areas:
+              "pl"
+              "db"
+              "lib"
+              "frameworks"
+              "os"
+              "devops"
+              "ides";
           }
         }
       `}</style>
-
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-[1fr_2fr] auto-rows-min tech-skills-grid">
-        <div className="tech-skills-grid-item-languages">
-          {programming && <SkillGroupCard group={programming} />}
-        </div>
-
-        <div className="tech-skills-grid-item-frameworks md:row-span-2">
-          {frameworks && (
-            <SkillGroupCard group={frameworks} extraClass="md:row-span-2" />
-          )}
-        </div>
-
-        <div className="space-y-4 tech-skills-grid-item-others">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            {databases && <SkillGroupCard group={databases} />}
-            {ides && <SkillGroupCard group={ides} />}
+      <div className="grid gap-14 tech-skills-grid">
+        {programming && (
+          <div className="tech-skills-grid-item-pl">
+            <SkillGroupCard group={programming} activeTags={activeTags} />
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            {devops && <SkillGroupCard group={devops} />}
-            {operatingSystems && <SkillGroupCard group={operatingSystems} />}
+        )}
+        {databases && (
+          <div className="tech-skills-grid-item-db">
+            <SkillGroupCard group={databases} activeTags={activeTags} />
           </div>
-
-          {remaining.map((group) => (
-            <SkillGroupCard key={group.id} group={group} />
-          ))}
-        </div>
+        )}
+        {libraries && (
+          <div className="tech-skills-grid-item-lib">
+            <SkillGroupCard group={libraries} activeTags={activeTags} />
+          </div>
+        )}
+        {frameworks && (
+          <div className="tech-skills-grid-item-frameworks">
+            <SkillGroupCard group={frameworks} activeTags={activeTags} />
+          </div>
+        )}
+        {operatingSystems && (
+          <div className="tech-skills-grid-item-os">
+            <SkillGroupCard group={operatingSystems} activeTags={activeTags} />
+          </div>
+        )}
+        {devops && (
+          <div className="tech-skills-grid-item-devops">
+            <SkillGroupCard group={devops} activeTags={activeTags} />
+          </div>
+        )}
+        {ides && (
+          <div className="tech-skills-grid-item-ides">
+            <SkillGroupCard group={ides} activeTags={activeTags} />
+          </div>
+        )}
       </div>
-
-      {remaining.length > 0 && false /* already rendered above */}
     </>
   );
 }

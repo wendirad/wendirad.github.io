@@ -1,20 +1,16 @@
 import type {
-  Education,
   Experience,
   PersonalInformation,
 } from "../../../data_provider/data_provider";
 import ExperienceCount from "./experience-count";
 import Description from "./pi-description";
-import EducationSummary from "./education";
 import { calculateTotalExperience } from "./about_utils";
 
 function About({
   pi,
-  educations,
   experiences,
 }: {
   pi: PersonalInformation;
-  educations: Education[];
   experiences: Experience[];
 }) {
   const totalYearOfExperience: number = calculateTotalExperience(experiences);
@@ -33,13 +29,9 @@ function About({
           {/* Left Column - About Descriptions */}
           <Description descriptions={pi.about_descriptions} />
 
-          {/* Right Column - Experience and Education Cards */}
+          {/* Right Column - Experience Card */}
           <div className="flex flex-col gap-4 self-center">
-            {/* Experience Card */}
             <ExperienceCount totalYearOfExperience={totalYearOfExperience} />
-
-            {/* Education Cards */}
-            <EducationSummary educations={educations} />
           </div>
         </div>
       </div>

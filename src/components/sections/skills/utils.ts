@@ -23,17 +23,14 @@ export function useSkillsFilter(skills: Skills) {
   }, [skills]);
 
   const filteredSkills = useMemo(() => {
-    if (activeTags.size === 0) return skills;
-
     const filterGroups = (groups: TechnicalSkill[]) =>
-      groups
-        .map((g) => ({
-          ...g,
-          skills: g.skills.filter((s) =>
-            s.tags?.some((t) => activeTags.has(t.toUpperCase()))
-          ),
-        }))
-        .filter((g) => g.skills.length > 0);
+      groups.map((g) => ({
+        ...g,
+        skills: g.skills.map((s) => ({
+          ...s,
+          matchesFilter: activeTags.size === 0 || (s.tags?.some((t) => activeTags.has(t.toUpperCase())) ?? false),
+        })),
+      }));
 
     return {
       technical: filterGroups(skills.technical),
