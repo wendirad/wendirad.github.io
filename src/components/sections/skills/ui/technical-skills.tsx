@@ -65,6 +65,12 @@ export default function TechnicalSkillsSection({
               "devops"
               "ides";
           }
+          .tech-skills-grid-item-lib {
+            margin-top: 0;
+          }
+          .tech-skills-grid-item-ides {
+            margin-top: 0;
+          }
         }
       `}</style>
       <div className="grid gap-14 tech-skills-grid">

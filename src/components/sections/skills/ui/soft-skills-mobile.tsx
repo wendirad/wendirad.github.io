@@ -13,7 +13,7 @@ export default function SoftSkillsMobile({ softItems }: SoftSkillsMobileProps) {
   };
 
   return (
-    <div className="md:hidden grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div className="md:hidden grid grid-cols-1 gap-4">
       {softItems.map((skill) => {
         const color = getColorFromIcon(skill.icon);
         return (

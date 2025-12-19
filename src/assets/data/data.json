@@ -162,7 +162,7 @@
       },
       "date_range": {"start_date": "2023-12", "end_date": "2025-06"},
       "gpa": "4/4",
-      "notes": "Specialization: Computer Vision"
+      "notes": "Specialized in Computer Vision"
     },
     {
       "id": "astu_bsc_cse_ece",
@@ -566,12 +566,6 @@
             "id": "problem_solving",
             "label": "Problem-Solving",
             "icon": "https://api.iconify.design/fa6-solid/lightbulb.svg?color=%23FBBF24",
-            "tags": []
-          },
-          {
-            "id": "collaboration",
-            "label": "Collaboration",
-            "icon": "https://api.iconify.design/fa6-solid/handshake.svg?color=%2314B8A6",
             "tags": []
           },
           {
