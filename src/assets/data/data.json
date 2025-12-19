@@ -335,8 +335,39 @@
         ]
       },
       {
-        "id": "frameworks_and_libraries",
-        "label": "Frameworks and Libraries",
+        "id": "databases",
+        "label": "Databases",
+        "icon": null,
+        "skills": [
+          {
+            "id": "mysql",
+            "label": "MySQL",
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+            "tags": ["Database", "SQL", "Relational Database"]
+          },
+          {
+            "id": "postgresql",
+            "label": "PostgreSQL",
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+            "tags": ["Database", "SQL", "Relational Database"]
+          },
+          {
+            "id": "mongodb",
+            "label": "MongoDB",
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+            "tags": ["Database", "NoSQL", "Document Store"]
+          },
+          {
+            "id": "firebase_firestore",
+            "label": "Firebase Firestore",
+            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
+            "tags": ["Database", "NoSQL", "Cloud", "Realtime Database"]
+          }
+        ]
+      },
+      {
+        "id": "libraries",
+        "label": "Libraries",
         "icon": null,
         "skills": [
           {
@@ -395,6 +426,19 @@
             "tags": ["Library", "Data Visualization", "Data Science"]
           },
           {
+            "id": "aiogram",
+            "label": "Aiogram",
+            "icon": "https://avatars.githubusercontent.com/u/33784865?s=200&v=4",
+            "tags": ["Library", "Bot Development", "Telegram", "Python"]
+          }
+        ]
+      },
+      {
+        "id": "frameworks",
+        "label": "Frameworks",
+        "icon": null,
+        "skills": [
+          {
             "id": "django",
             "label": "Django",
             "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg",
@@ -414,43 +458,6 @@
             "label": "Flutter",
             "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
             "tags": ["Framework", "Mobile Development", "Dart", "Frontend"]
-          },
-          {
-            "id": "aiogram",
-            "label": "Aiogram",
-            "icon": "https://avatars.githubusercontent.com/u/33784865?s=200&v=4",
-            "tags": ["Library", "Bot Development", "Telegram", "Python"]
-          }
-        ]
-      },
-      {
-        "id": "databases",
-        "label": "Databases",
-        "icon": null,
-        "skills": [
-          {
-            "id": "mysql",
-            "label": "MySQL",
-            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
-            "tags": ["Database", "SQL", "Relational Database"]
-          },
-          {
-            "id": "postgresql",
-            "label": "PostgreSQL",
-            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
-            "tags": ["Database", "SQL", "Relational Database"]
-          },
-          {
-            "id": "mongodb",
-            "label": "MongoDB",
-            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
-            "tags": ["Database", "NoSQL", "Document Store"]
-          },
-          {
-            "id": "firebase_firestore",
-            "label": "Firebase Firestore",
-            "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
-            "tags": ["Database", "NoSQL", "Cloud", "Realtime Database"]
           }
         ]
       },
