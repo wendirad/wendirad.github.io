@@ -1,11 +1,14 @@
 import type DataProvider from "../../../data_provider/data_provider";
 import AIChat from "./ai-chat";
+import { calculateTotalExperience } from "../about/about_utils";
 
 interface AIInteractionProps {
   userData: DataProvider;
 }
 
 export default function AIInteraction({ userData }: AIInteractionProps) {
+  const totalYears = calculateTotalExperience(userData.experiences);
+
   return (
     <section
       id="about"
@@ -20,6 +23,14 @@ export default function AIInteraction({ userData }: AIInteractionProps) {
                 <h2 className="text-tertiary-light dark:text-tertiary-dark font-bold tracking-[.4em] text-[11px] uppercase">
                   AI Interaction
                 </h2>
+              </div>
+              <div className="flex items-baseline gap-3 mb-8">
+                <span className="text-5xl md:text-7xl font-black text-tertiary-light dark:text-tertiary-dark">
+                  {totalYears}+
+                </span>
+                <span className="text-secondary-light dark:text-secondary-dark text-sm md:text-base uppercase tracking-wider font-bold">
+                  Years of Experience
+                </span>
               </div>
               <h2 className="text-4xl md:text-6xl font-black text-gray-900 dark:text-gray-100 tracking-tighter italic mb-8 uppercase">
                 Let AI Pitch<br /> Wendirad to You.
