@@ -9,7 +9,7 @@ import DataProvider from "./data_provider/data_provider";
 import rawUserData from "./assets/data/data.json";
 
 import Home from "./components/sections/home";
-import About from "./components/sections/about/about";
+import AIInteraction from "./components/sections/ai-interaction/ai-interaction";
 import SkillsSummary from "./components/sections/skills/skills";
 import ReachOut from "./components/sections/reach-out/reach-out";
 import WorkHistory from "./components/sections/work-history/work-history";
@@ -38,10 +38,7 @@ function App() {
       <ScrollIndicator />
 
       <Home pi={userData.personalInformation} />
-      <About
-        pi={userData.personalInformation}
-        experiences={userData.experiences}
-      />
+      <AIInteraction userData={userData} />
       <SkillsSummary
         skills={userData.skills}
         educations={userData.educations}

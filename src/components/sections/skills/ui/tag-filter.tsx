@@ -52,20 +52,20 @@ function TagFilter({ tagPills, activeTags, toggleTag }: TagFilterProps) {
       {/* Filter Pills */}
       <div className="hidden md:flex flex-wrap justify-center gap-2 sm:gap-3">
         {displayedTags.map((tag) => (
-          <button
-            key={tag}
-            type="button"
-            onClick={() => toggleTag(tag)}
-            className={`px-3 py-1 text-xs font-semibold uppercase tracking-wide rounded-full shadow-sm transition-colors ${
-              activeTags.has(tag)
-                ? "bg-gray-900 dark:bg-gray-100 text-gray-100 dark:text-gray-900"
-                : "bg-white/70 dark:bg-gray-800/70 text-gray-800 dark:text-gray-100"
-            }`}
-            aria-pressed={activeTags.has(tag)}
-          >
-            {tag}
-          </button>
-        ))}
+        <button
+          key={tag}
+          type="button"
+          onClick={() => toggleTag(tag)}
+          className={`px-3 py-1 text-xs font-semibold uppercase tracking-wide rounded-full shadow-sm transition-colors ${
+            activeTags.has(tag)
+              ? "bg-gray-900 dark:bg-gray-100 text-gray-100 dark:text-gray-900"
+              : "bg-white/70 dark:bg-gray-800/70 text-gray-800 dark:text-gray-100"
+          }`}
+          aria-pressed={activeTags.has(tag)}
+        >
+          {tag}
+        </button>
+      ))}
         
         {/* Show More/Less Button */}
         {hasMore && (

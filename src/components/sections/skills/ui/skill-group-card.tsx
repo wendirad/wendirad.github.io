@@ -24,7 +24,7 @@ export default function SkillGroupCard({
   return (
     <div className={`space-y-4 ${extraClass}`}>
       <h3 className="text-[10px] font-black tracking-[0.4em] uppercase text-secondary-light dark:text-secondary-dark border-b border-secondary-light/30 dark:border-secondary-dark/30 pb-4">
-        {group.label}
+          {group.label}
       </h3>
       <div className={`grid ${gridCols} gap-4`}>
         {group.skills.map((skill: Skill) => {
@@ -41,12 +41,12 @@ export default function SkillGroupCard({
           >
             {skill.icon ? (
               <div className="w-10 h-10 mb-3 transition-all">
-                <img
-                  src={skill.icon}
-                  alt={skill.label}
+              <img
+                src={skill.icon}
+                alt={skill.label}
                   className="w-full h-full object-contain"
-                  loading="lazy"
-                />
+                loading="lazy"
+              />
               </div>
             ) : (
               <div className="w-10 h-10 mb-3 rounded-full bg-tertiary-light/60 dark:bg-tertiary-dark/60 flex items-center justify-center text-xs font-semibold text-gray-900 dark:text-gray-100 group-hover:scale-110 transition-all">
