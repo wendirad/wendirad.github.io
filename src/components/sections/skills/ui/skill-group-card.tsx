@@ -40,13 +40,7 @@ export default function SkillGroupCard({
             }`}
           >
             {skill.icon ? (
-              <div className={`w-10 h-10 mb-3 transition-all ${
-                activeTags.size > 0 && matchesFilter 
-                  ? '' 
-                  : activeTags.size > 0 
-                    ? 'grayscale' 
-                    : 'grayscale group-hover:grayscale-0'
-              }`}>
+              <div className="w-10 h-10 mb-3 transition-all">
                 <img
                   src={skill.icon}
                   alt={skill.label}
@@ -59,7 +53,7 @@ export default function SkillGroupCard({
                 {skill.label.charAt(0).toUpperCase()}
               </div>
             )}
-            <span className="text-[10px] font-bold uppercase tracking-widest text-secondary-light dark:text-secondary-dark group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors">
+            <span className="text-[10px] font-bold uppercase tracking-widest text-gray-900 dark:text-gray-100 transition-colors">
               {skill.label}
             </span>
           </div>
