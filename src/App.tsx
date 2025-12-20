@@ -22,7 +22,7 @@ const NAV_ITEMS: Array<{
   { id: "home", label: "Home", href: "#home" },
   { id: "about", label: "About", href: "#about" },
   { id: "skills", label: "Skills", href: "#skills" },
-  { id: "work", label: "Work", href: "#work" },
+  { id: "work", label: "Work History", href: "#work" },
   { id: "projects", label: "Projects", href: "#projects" },
   { id: "more", label: "More", href: "#more" },
   { id: "contact", label: "Contact", href: "#contact" },
