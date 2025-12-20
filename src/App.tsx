@@ -14,6 +14,7 @@ import AIInteraction from "./components/sections/ai-interaction/ai-interaction";
 import SkillsSummary from "./components/sections/skills/skills";
 import ReachOut from "./components/sections/reach-out/reach-out";
 import WorkHistory from "./components/sections/work-history/work-history";
+import Projects from "./components/sections/projects/projects";
 
 const NAV_ITEMS: Array<{
   id: string;
@@ -46,6 +47,7 @@ function App() {
       />
       <ReachOut pi={userData.personalInformation} />
       <WorkHistory experiences={userData.experiences} />
+      <Projects projects={userData.projects} />
 
       <SchemeOrg userData={userData} />
       <CookieConsent />
