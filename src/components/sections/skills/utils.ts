@@ -3,6 +3,7 @@ import type {
   Skills,
   TechnicalSkill,
 } from "../../../data_provider/data_provider";
+import { trackClarityEvent } from "../../../utils/clarity";
 
 export function useSkillsFilter(skills: Skills) {
   const [activeTags, setActiveTags] = useState<Set<string>>(new Set());
@@ -42,8 +43,13 @@ export function useSkillsFilter(skills: Skills) {
     const norm = tag.toUpperCase();
     setActiveTags((prev) => {
       const next = new Set(prev);
+      const isActivating = !next.has(norm);
       if (next.has(norm)) next.delete(norm);
       else next.add(norm);
+      
+      // Track tag filter interaction
+      trackClarityEvent(`skill-tag-${isActivating ? 'activate' : 'deactivate'}-${norm.toLowerCase()}`);
+      
       return next;
     });
   };

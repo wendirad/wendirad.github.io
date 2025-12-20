@@ -4,6 +4,7 @@ import ScrollIndicator from "./components/ui/scroll-indicator";
 import ThemeToggle from "./components/ui/theme-toggle";
 import SchemeOrg from "./components/ui/scheme-org";
 import NavigationBar from "./components/ui/navigation-bar";
+import CookieConsent from "./components/ui/cookie-consent";
 
 import DataProvider from "./data_provider/data_provider";
 import rawUserData from "./assets/data/data.json";
@@ -22,7 +23,7 @@ const NAV_ITEMS: Array<{
   { id: "home", label: "Home", href: "#home" },
   { id: "about", label: "About", href: "#about" },
   { id: "skills", label: "Skills", href: "#skills" },
-  { id: "work", label: "Work", href: "#work" },
+  { id: "work", label: "Work History", href: "#work" },
   { id: "projects", label: "Projects", href: "#projects" },
   { id: "more", label: "More", href: "#more" },
   { id: "contact", label: "Contact", href: "#contact" },
@@ -47,6 +48,7 @@ function App() {
       <WorkHistory experiences={userData.experiences} />
 
       <SchemeOrg userData={userData} />
+      <CookieConsent />
     </>
   );
 }

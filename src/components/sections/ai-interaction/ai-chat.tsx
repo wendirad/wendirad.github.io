@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import type DataProvider from "../../../data_provider/data_provider";
 import { useTheme } from "../../utils/theme";
+import { trackClarityEvent } from "../../../utils/clarity";
 
 interface AIChatProps {
   userData: DataProvider;
@@ -51,9 +52,11 @@ export default function AIChat({ userData }: AIChatProps) {
   const [loading, setLoading] = useState(false);
   const scrollEnd = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const hasInteractedRef = useRef(false);
 
   useEffect(() => {
-    if (scrollEnd.current) {
+    // Only scroll when there are messages, not on initial mount
+    if (scrollEnd.current && messages.length > 0) {
       scrollEnd.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
     }
   }, [messages, loading]);
@@ -64,6 +67,16 @@ export default function AIChat({ userData }: AIChatProps) {
     if (!input.trim() || loading) return;
     
     const userMsg = input.trim();
+    
+    // Track first interaction
+    if (!hasInteractedRef.current) {
+      trackClarityEvent("chat-first-interaction");
+      hasInteractedRef.current = true;
+    }
+    
+    // Track message sent
+    trackClarityEvent("chat-message-sent");
+    
     setInput("");
     setMessages((prev) => [...prev, { role: "user", text: userMsg }]);
     setLoading(true);
@@ -75,8 +88,12 @@ export default function AIChat({ userData }: AIChatProps) {
     setLoading(false);
 
     if (aiResponse) {
+      // Track successful response
+      trackClarityEvent("chat-response-received");
       setMessages((prev) => [...prev, { role: "ai", text: aiResponse }]);
     } else {
+      // Track error response
+      trackClarityEvent("chat-response-error");
       setMessages((prev) => [
         ...prev,
         { role: "ai", text: "Sorry, something went wrong. Please try again." },
@@ -210,7 +227,19 @@ export default function AIChat({ userData }: AIChatProps) {
               ref={inputRef}
               type="text"
               value={input}
-              onChange={(e) => setInput(e.target.value)}
+              onChange={(e) => {
+                setInput(e.target.value);
+                // Track when user starts typing (first time only)
+                if (!hasInteractedRef.current && e.target.value.trim().length > 0) {
+                  trackClarityEvent("chat-input-focused");
+                }
+              }}
+              onFocus={() => {
+                // Track when input is focused for the first time
+                if (!hasInteractedRef.current) {
+                  trackClarityEvent("chat-input-focused");
+                }
+              }}
               onKeyDown={(e) => {
                 if (e.key === "Enter" && !e.shiftKey && !loading) {
                   e.preventDefault();

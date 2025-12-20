@@ -2,6 +2,7 @@ import {
   type Skill,
   type TechnicalSkill,
 } from "../../../../data_provider/data_provider";
+import { trackClarityEvent } from "../../../../utils/clarity";
 
 interface SkillGroupCardProps {
   group: TechnicalSkill;
@@ -35,8 +36,13 @@ export default function SkillGroupCard({
           return (
           <div
             key={skill.id}
+            onClick={() => {
+              if (!shouldDim) {
+                trackClarityEvent(`skill-card-click-${skill.id}`);
+              }
+            }}
             className={`group flex flex-col items-center p-4 bg-secondary-light/30 dark:bg-secondary-dark/30 border border-secondary-light/30 dark:border-secondary-dark/30 rounded-2xl hover:border-tertiary-light dark:hover:border-tertiary-dark hover:shadow-xl hover:shadow-secondary-light/20 dark:hover:shadow-secondary-dark/20 transition-all duration-300 ${
-              shouldDim ? 'opacity-30 pointer-events-none' : ''
+              shouldDim ? 'opacity-30 pointer-events-none' : 'cursor-pointer'
             }`}
           >
             {skill.icon ? (
