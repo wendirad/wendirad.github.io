@@ -53,7 +53,8 @@ export default function AIChat({ userData }: AIChatProps) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (scrollEnd.current) {
+    // Only scroll when there are messages, not on initial mount
+    if (scrollEnd.current && messages.length > 0) {
       scrollEnd.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
     }
   }, [messages, loading]);
