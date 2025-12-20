@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import { trackClarityEvent } from "../../../../utils/clarity";
 
 interface TagFilterProps {
@@ -9,53 +9,16 @@ interface TagFilterProps {
 
 function TagFilter({ tagPills, activeTags, toggleTag }: TagFilterProps) {
   const [showAll, setShowAll] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
   
   const INITIAL_COUNT = 8;
   
-  const filteredTags = useMemo(() => {
-    if (!searchQuery) return tagPills;
-    const query = searchQuery.toUpperCase();
-    return tagPills.filter((tag) => tag.includes(query));
-  }, [tagPills, searchQuery]);
-  
-  const displayedTags = showAll ? filteredTags : filteredTags.slice(0, INITIAL_COUNT);
-  const hasMore = filteredTags.length > INITIAL_COUNT;
+  const displayedTags = showAll ? tagPills : tagPills.slice(0, INITIAL_COUNT);
+  const hasMore = tagPills.length > INITIAL_COUNT;
 
   if (tagPills.length === 0) return null;
 
   return (
     <div className="mb-12">
-      {/* Search Bar */}
-      <div className="hidden md:flex justify-center mb-4">
-        <div className="relative w-full max-w-md">
-          <input
-            type="text"
-            value={searchQuery}
-            onChange={(e) => {
-              setSearchQuery(e.target.value);
-              if (e.target.value.trim().length > 0) {
-                trackClarityEvent("skill-filter-search");
-              }
-            }}
-            onFocus={() => trackClarityEvent("skill-filter-search-focused")}
-            placeholder="Search filters..."
-            className="w-full px-4 py-2 text-sm bg-white/70 dark:bg-gray-800/70 border border-secondary-light/30 dark:border-secondary-dark/30 rounded-full text-gray-800 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-tertiary-light dark:focus:border-tertiary-dark transition-colors"
-          />
-          {searchQuery && (
-            <button
-              onClick={() => setSearchQuery("")}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
-              aria-label="Clear search"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          )}
-        </div>
-      </div>
-
       {/* Filter Pills */}
       <div className="hidden md:flex flex-wrap justify-center gap-2 sm:gap-3">
         {displayedTags.map((tag) => (
@@ -85,7 +48,7 @@ function TagFilter({ tagPills, activeTags, toggleTag }: TagFilterProps) {
             }}
             className="px-3 py-1 text-xs font-semibold uppercase tracking-wide rounded-full shadow-sm transition-colors bg-secondary-light/30 dark:bg-secondary-dark/30 text-gray-800 dark:text-gray-100 hover:bg-secondary-light/50 dark:hover:bg-secondary-dark/50"
           >
-            {showAll ? "Show Less" : `Show More (${filteredTags.length - INITIAL_COUNT})`}
+            {showAll ? "Show Less" : `Show More (${tagPills.length - INITIAL_COUNT})`}
           </button>
         )}
       </div>
