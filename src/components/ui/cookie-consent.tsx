@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { initializeClarity } from "../../utils/clarity";
 
 const COOKIE_CONSENT_KEY = "wendiradcom-cookie-consent";
 
@@ -20,6 +21,8 @@ export default function CookieConsent() {
   const handleContinue = () => {
     localStorage.setItem(COOKIE_CONSENT_KEY, "accepted");
     setIsVisible(false);
+    // Initialize Clarity after user consent
+    initializeClarity();
   };
 
   if (!isVisible) {
