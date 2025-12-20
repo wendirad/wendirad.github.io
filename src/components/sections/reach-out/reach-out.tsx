@@ -1,12 +1,42 @@
+import { useEffect, useRef } from "react";
 import type { PersonalInformation } from "../../../data_provider/data_provider";
+import { trackClarityEvent } from "../../../utils/clarity";
 
 interface ReachOutProps {
   pi: PersonalInformation;
 }
 
 export default function ReachOut({ pi }: ReachOutProps) {
+  const sectionRef = useRef<HTMLElement>(null);
+  const hasTrackedViewRef = useRef(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasTrackedViewRef.current) {
+            trackClarityEvent("get-in-touch-section-viewed");
+            hasTrackedViewRef.current = true;
+          }
+        });
+      },
+      { threshold: 0.5 } // Track when 50% of section is visible
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   return (
     <section
+      ref={sectionRef}
       id="contact"
       className="w-full flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16"
     >
@@ -34,6 +64,7 @@ export default function ReachOut({ pi }: ReachOutProps) {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
               href={`mailto:${pi.email}`}
+              onClick={() => trackClarityEvent("get-in-touch-email-click")}
               className="px-10 py-5 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded-full font-black uppercase tracking-widest text-[11px] hover:bg-tertiary-light dark:hover:bg-tertiary-dark transition-all"
             >
               Send Email
@@ -43,6 +74,7 @@ export default function ReachOut({ pi }: ReachOutProps) {
               target="_blank"
               rel="noopener noreferrer"
               className="px-10 py-5 bg-secondary-light/30 dark:bg-secondary-dark/30 border border-secondary-light/30 dark:border-secondary-dark/30 text-gray-900 dark:text-gray-100 rounded-full font-black uppercase tracking-widest text-[11px] hover:border-tertiary-light dark:hover:border-tertiary-dark transition-all"
+              onClick={() => trackClarityEvent("get-in-touch-cv-download")}
             >
               Download CV
             </a>

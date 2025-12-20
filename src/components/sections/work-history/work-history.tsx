@@ -4,6 +4,7 @@ import TimelineHeader from "./ui/timeline-header";
 import ExperienceNode from "./ui/experience-node";
 import PrevIcon from "../../icons/prev";
 import NextIcon from "../../icons/next";
+import { trackClarityEvent } from "../../../utils/clarity";
 
 interface WorkHistoryProps {
   experiences: Experience[];
@@ -14,6 +15,8 @@ const WorkHistory: React.FC<WorkHistoryProps> = ({ experiences }) => {
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const previousIndexRef = useRef<number>(0);
 
   const checkScrollability = () => {
     if (!scrollContainerRef.current) return;
@@ -27,13 +30,32 @@ const WorkHistory: React.FC<WorkHistoryProps> = ({ experiences }) => {
     // Determine current index based on scroll position
     const cardWidth = container.querySelector('[class*="w-[350px]"], [class*="w-[450px]"]')?.clientWidth || 350;
     const newIndex = Math.round(scrollLeft / cardWidth);
-    setCurrentIndex(Math.min(newIndex, experiences.length - 1));
+    const clampedIndex = Math.min(newIndex, experiences.length - 1);
+    
+    // Track scroll event when index changes
+    if (clampedIndex !== previousIndexRef.current && experiences[clampedIndex]) {
+      const experienceId = experiences[clampedIndex].id;
+      // Debounce scroll tracking to avoid too many events
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+      scrollTimeoutRef.current = setTimeout(() => {
+        trackClarityEvent(`work-history-scroll-${experienceId}`);
+      }, 300);
+      previousIndexRef.current = clampedIndex;
+    }
+    
+    setCurrentIndex(clampedIndex);
   };
 
   useEffect(() => {
     const container = scrollContainerRef.current;
     if (!container) return;
 
+    // Reset previous index when experiences change
+    previousIndexRef.current = 0;
+    setCurrentIndex(0);
+    
     checkScrollability();
     container.addEventListener("scroll", checkScrollability);
     window.addEventListener("resize", checkScrollability);
@@ -41,6 +63,9 @@ const WorkHistory: React.FC<WorkHistoryProps> = ({ experiences }) => {
     return () => {
       container.removeEventListener("scroll", checkScrollability);
       window.removeEventListener("resize", checkScrollability);
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
     };
   }, [experiences.length]);
 
@@ -51,7 +76,10 @@ const WorkHistory: React.FC<WorkHistoryProps> = ({ experiences }) => {
     const cards = container.querySelectorAll('[class*="snap-start"]');
     const targetIndex = currentIndex - 1;
 
-    if (cards[targetIndex]) {
+    if (cards[targetIndex] && experiences[targetIndex]) {
+      const experienceId = experiences[targetIndex].id;
+      trackClarityEvent(`work-history-prev-${experienceId}`);
+      
       (cards[targetIndex] as HTMLElement).scrollIntoView({
         behavior: "smooth",
         block: "nearest",
@@ -67,7 +95,10 @@ const WorkHistory: React.FC<WorkHistoryProps> = ({ experiences }) => {
     const cards = container.querySelectorAll('[class*="snap-start"]');
     const targetIndex = currentIndex + 1;
 
-    if (cards[targetIndex]) {
+    if (cards[targetIndex] && experiences[targetIndex]) {
+      const experienceId = experiences[targetIndex].id;
+      trackClarityEvent(`work-history-next-${experienceId}`);
+      
       (cards[targetIndex] as HTMLElement).scrollIntoView({
         behavior: "smooth",
         block: "nearest",

@@ -3,9 +3,8 @@ export default function PrevIcon() {
     <img
       src="/icons/play.png"
       alt="Previous"
-      className="w-6 h-6 dark:brightness-0 dark:invert"
+      className="w-6 h-6 brightness-0 opacity-65 dark:invert dark:opacity-100"
       style={{
-        filter: 'brightness(0) opacity(0.65)',
         transform: 'scaleX(-1)',
         display: 'block'
       }}

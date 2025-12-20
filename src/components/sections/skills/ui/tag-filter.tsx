@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { trackClarityEvent } from "../../../../utils/clarity";
 
 interface TagFilterProps {
   tagPills: string[];
@@ -31,7 +32,13 @@ function TagFilter({ tagPills, activeTags, toggleTag }: TagFilterProps) {
           <input
             type="text"
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={(e) => {
+              setSearchQuery(e.target.value);
+              if (e.target.value.trim().length > 0) {
+                trackClarityEvent("skill-filter-search");
+              }
+            }}
+            onFocus={() => trackClarityEvent("skill-filter-search-focused")}
             placeholder="Search filters..."
             className="w-full px-4 py-2 text-sm bg-white/70 dark:bg-gray-800/70 border border-secondary-light/30 dark:border-secondary-dark/30 rounded-full text-gray-800 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-tertiary-light dark:focus:border-tertiary-dark transition-colors"
           />
@@ -71,7 +78,11 @@ function TagFilter({ tagPills, activeTags, toggleTag }: TagFilterProps) {
         {hasMore && (
           <button
             type="button"
-            onClick={() => setShowAll(!showAll)}
+            onClick={() => {
+              const newState = !showAll;
+              setShowAll(newState);
+              trackClarityEvent(`skill-filter-${newState ? 'show-more' : 'show-less'}`);
+            }}
             className="px-3 py-1 text-xs font-semibold uppercase tracking-wide rounded-full shadow-sm transition-colors bg-secondary-light/30 dark:bg-secondary-dark/30 text-gray-800 dark:text-gray-100 hover:bg-secondary-light/50 dark:hover:bg-secondary-dark/50"
           >
             {showAll ? "Show Less" : `Show More (${filteredTags.length - INITIAL_COUNT})`}

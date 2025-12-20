@@ -1,6 +1,7 @@
 import { useEffect, type JSX } from "react";
 import { type PersonalInformation } from "../../data_provider/data_provider";
 import { useTheme } from "../utils/theme";
+import { trackClarityEvent } from "../../utils/clarity";
 import LocationPinIcon from "../icons/location-pin";
 import PhoneIcon from "../icons/phone";
 import EmailIcon from "../icons/email";
@@ -26,6 +27,12 @@ function Home({ pi }: { pi: PersonalInformation }) {
     new Image().src = pi.photo.light;
     new Image().src = pi.photo.dark;
   }, [pi.photo.light, pi.photo.dark]);
+
+  const handleProfileImageClick = () => {
+    const newTheme = isDark ? "light" : "dark";
+    trackClarityEvent(`theme-toggle-${newTheme}`);
+    toggleTheme();
+  };
 
   return (
     <section
@@ -56,6 +63,7 @@ function Home({ pi }: { pi: PersonalInformation }) {
                   <PhoneIcon />
                   <a
                     href={`tel:${pi.phone}`}
+                    onClick={() => trackClarityEvent("home-phone-click")}
                     className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
                   >
                     {pi.phone}
@@ -65,6 +73,7 @@ function Home({ pi }: { pi: PersonalInformation }) {
                   <EmailIcon />
                   <a
                     href={`mailto:${pi.email}`}
+                    onClick={() => trackClarityEvent("home-email-click")}
                     className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
                   >
                     {pi.email}
@@ -80,6 +89,7 @@ function Home({ pi }: { pi: PersonalInformation }) {
                     rel="noopener noreferrer"
                     title={social_link.title}
                     className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+                    onClick={() => trackClarityEvent(`social-link-click-${social_link.id}`)}
                   >
                     {socialIcons[social_link.id]}
                   </a>
@@ -91,12 +101,13 @@ function Home({ pi }: { pi: PersonalInformation }) {
             <img
               src={isDark ? pi.photo.dark : pi.photo.light}
               alt={pi.name}
-              onClick={toggleTheme}
+              onClick={handleProfileImageClick}
               className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-lg object-contain cursor-pointer transition-opacity hover:opacity-90"
             />
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
               <a
                 href={pi.blog_url}
+                onClick={() => trackClarityEvent("home-blogs-click")}
                 className="px-6 py-3 border-2 border-gray-900 dark:border-gray-100 text-gray-900 dark:text-gray-100 rounded-lg font-semibold text-center hover:bg-gray-900 dark:hover:bg-gray-100 hover:text-gray-100 dark:hover:text-gray-900 transition-colors duration-200 flex items-center justify-center gap-2"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -106,6 +117,7 @@ function Home({ pi }: { pi: PersonalInformation }) {
               </a>
               <a
                 href="#contact"
+                onClick={() => trackClarityEvent("home-contact-me-click")}
                 className="px-6 py-3 bg-gray-900 dark:bg-gray-100 text-gray-100 dark:text-gray-900 rounded-lg font-semibold text-center hover:bg-transparent dark:hover:bg-gray-900 hover:border-2 hover:border-gray-900 dark:hover:border-gray-100 hover:text-gray-900 dark:hover:text-gray-100 transition-all duration-200 flex items-center justify-center gap-2"
               >
                 <ContactIcon />
@@ -116,6 +128,7 @@ function Home({ pi }: { pi: PersonalInformation }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-6 py-3 border-2 border-gray-900 dark:border-gray-100 text-gray-900 dark:text-gray-100 rounded-lg font-semibold text-center hover:bg-gray-900 dark:hover:bg-gray-100 hover:text-gray-100 dark:hover:text-gray-900 transition-colors duration-200 flex items-center justify-center gap-2"
+                onClick={() => trackClarityEvent("file-download-cv")}
               >
                 <DownloadIcon />
                 Download CV

@@ -1,5 +1,4 @@
 import Clarity from '@microsoft/clarity';
-
 /**
  * Microsoft Clarity Project ID
  * 
@@ -29,7 +28,7 @@ export function initializeClarity() {
     clarityInitialized = true;
     
     // If Clarity is already loaded (e.g., via script tag), also set consent
-    if (typeof window !== 'undefined' && (window as any).clarity) {
+    if (typeof window !== 'undefined' && (window as any).Clarity) {
       (window as any).Clarity.consentV2({ ad_Storage: 'denied', analytics_Storage: 'granted' });
       ;
     }
@@ -59,6 +58,7 @@ export function trackClarityEvent(eventName: string) {
 
   try {
     Clarity.event(eventName);
+    Clarity.upgrade(eventName);
   } catch (error) {
     console.error("Failed to track Clarity event:", error);
   }

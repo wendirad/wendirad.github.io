@@ -1,4 +1,5 @@
 import { type Skill } from "../../../../data_provider/data_provider";
+import { trackClarityEvent } from "../../../../utils/clarity";
 
 interface SoftSkillsDesktopProps {
   softItems: Skill[];
@@ -21,7 +22,8 @@ export default function SoftSkillsDesktop({
         return (
         <div
           key={skill.id}
-            className="flex items-center gap-4 p-4 bg-secondary-light/20 dark:bg-secondary-dark/20 border border-secondary-light/30 dark:border-secondary-dark/30 rounded-2xl hover:bg-secondary-light/30 dark:hover:bg-secondary-dark/30 hover:shadow-lg hover:shadow-secondary-light/10 dark:hover:shadow-secondary-dark/10 transition-all group"
+          onClick={() => trackClarityEvent(`soft-skill-click-${skill.id}`)}
+          className="flex items-center gap-4 p-4 bg-secondary-light/20 dark:bg-secondary-dark/20 border border-secondary-light/30 dark:border-secondary-dark/30 rounded-2xl hover:bg-secondary-light/30 dark:hover:bg-secondary-dark/30 hover:shadow-lg hover:shadow-secondary-light/10 dark:hover:shadow-secondary-dark/10 transition-all group cursor-pointer"
         >
           {skill.icon ? (
               <div
