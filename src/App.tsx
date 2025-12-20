@@ -4,6 +4,7 @@ import ScrollIndicator from "./components/ui/scroll-indicator";
 import ThemeToggle from "./components/ui/theme-toggle";
 import SchemeOrg from "./components/ui/scheme-org";
 import NavigationBar from "./components/ui/navigation-bar";
+import CookieConsent from "./components/ui/cookie-consent";
 
 import DataProvider from "./data_provider/data_provider";
 import rawUserData from "./assets/data/data.json";
@@ -47,6 +48,7 @@ function App() {
       <WorkHistory experiences={userData.experiences} />
 
       <SchemeOrg userData={userData} />
+      <CookieConsent />
     </>
   );
 }
