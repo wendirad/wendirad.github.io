@@ -49,7 +49,7 @@ function App() {
       <ReachOut pi={userData.personalInformation} />
       <WorkHistory experiences={userData.experiences} />
       <Projects projects={userData.projects} />
-      <ContactForm pi={userData.personalInformation} />
+      <ContactForm />
 
       <Footer pi={userData.personalInformation} />
 
