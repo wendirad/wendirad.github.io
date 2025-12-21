@@ -15,6 +15,7 @@ import SkillsSummary from "./components/sections/skills/skills";
 import ReachOut from "./components/sections/reach-out/reach-out";
 import WorkHistory from "./components/sections/work-history/work-history";
 import Projects from "./components/sections/projects/projects";
+import ContactForm from "./components/sections/contact-form/contact-form";
 
 const NAV_ITEMS: Array<{
   id: string;
@@ -26,8 +27,7 @@ const NAV_ITEMS: Array<{
   { id: "skills", label: "Skills", href: "#skills" },
   { id: "work", label: "Work History", href: "#work" },
   { id: "projects", label: "Projects", href: "#projects" },
-  { id: "more", label: "More", href: "#more" },
-  { id: "contact", label: "Contact", href: "#contact" },
+  { id: "contact", label: "Contact", href: "#contact-form" },
 ];
 
 function App() {
@@ -48,6 +48,7 @@ function App() {
       <ReachOut pi={userData.personalInformation} />
       <WorkHistory experiences={userData.experiences} />
       <Projects projects={userData.projects} />
+      <ContactForm pi={userData.personalInformation} />
 
       <SchemeOrg userData={userData} />
       <CookieConsent />
