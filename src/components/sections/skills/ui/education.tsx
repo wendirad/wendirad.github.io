@@ -18,6 +18,16 @@ export default function Education({ educations }: { educations: Education[] }) {
             </h3>
           </div>
           <div className="flex items-center gap-3 mb-2">
+            {education.institution.logo && (
+              <div className="w-10 h-10 rounded-full flex items-center justify-center shadow-sm overflow-hidden bg-white dark:bg-gray-800 border border-secondary-light/30 dark:border-secondary-dark/30">
+                <img
+                  src={education.institution.logo}
+                  alt={education.institution.name}
+                  className="w-full h-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+            )}
             <p className="text-secondary-light dark:text-secondary-dark font-bold text-sm uppercase tracking-wide">
               {education.institution.name}
             </p>

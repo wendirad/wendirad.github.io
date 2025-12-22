@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { trackClarityEvent } from "../../../utils/clarity";
 
-const PAGECLIP_ENDPOINT = "https://send.pageclip.co/a5HGRacYuWURQ0S9rLNLxExE5WhiufFk";
+const PAGECLIP_ENDPOINT = "https://send.pageclip.co/a5HGRacYuWURQ0S9rLNLxExE5WhiufFk/contact-form";
 
 export default function ContactForm() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -60,14 +60,20 @@ export default function ContactForm() {
     setIsSubmitting(true);
     setSubmitStatus("idle");
     
+    // Add Pageclip loading class
+    const submitButton = formRef.current?.querySelector('.pageclip-form__submit') as HTMLElement;
+    if (submitButton) {
+      submitButton.classList.add('is-loading');
+    }
+    
     trackClarityEvent("contact-form-submitted");
 
     try {
-      const formDataToSend = new FormData();
-      formDataToSend.append("name", formData.name);
-      formDataToSend.append("email", formData.email);
-      formDataToSend.append("subject", formData.subject);
-      formDataToSend.append("message", formData.message);
+      if (!formRef.current) {
+        throw new Error("Form not found");
+      }
+
+      const formDataToSend = new FormData(formRef.current);
 
       const response = await fetch(PAGECLIP_ENDPOINT, {
         method: "POST",
@@ -107,6 +113,11 @@ export default function ContactForm() {
       trackClarityEvent("contact-form-error");
     } finally {
       setIsSubmitting(false);
+      // Remove Pageclip loading class
+      const button = formRef.current?.querySelector('.pageclip-form__submit') as HTMLElement;
+      if (button) {
+        button.classList.remove('is-loading');
+      }
     }
   };
 
@@ -144,7 +155,9 @@ export default function ContactForm() {
               <form
                 ref={formRef}
                 onSubmit={handleSubmit}
-                className="space-y-4"
+                className="space-y-4 pageclip-form"
+                action={PAGECLIP_ENDPOINT}
+                method="post"
               >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
@@ -243,35 +256,37 @@ export default function ContactForm() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="px-10 py-4 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded-full font-black uppercase tracking-widest text-[11px] hover:bg-tertiary-light dark:hover:bg-tertiary-dark transition-all disabled:opacity-50 disabled:cursor-not-allowed relative min-w-[140px]"
+                    className="pageclip-form__submit px-10 py-4 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded-full font-black uppercase tracking-widest text-[11px] hover:bg-tertiary-light dark:hover:bg-tertiary-dark transition-all disabled:opacity-50 disabled:cursor-not-allowed relative min-w-[140px]"
                   >
-                    {isSubmitting ? (
-                      <span className="flex items-center justify-center gap-2">
-                        <svg
-                          className="animate-spin h-4 w-4"
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                        >
-                          <circle
-                            className="opacity-25"
-                            cx="12"
-                            cy="12"
-                            r="10"
-                            stroke="currentColor"
-                            strokeWidth="4"
-                          ></circle>
-                          <path
-                            className="opacity-75"
-                            fill="currentColor"
-                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                          ></path>
-                        </svg>
-                        Sending...
-                      </span>
-                    ) : (
-                      "Send Message"
-                    )}
+                    <span className="pageclip-form__submit-text">
+                      {isSubmitting ? (
+                        <span className="flex items-center justify-center gap-2">
+                          <svg
+                            className="animate-spin h-4 w-4"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                          >
+                            <circle
+                              className="opacity-25"
+                              cx="12"
+                              cy="12"
+                              r="10"
+                              stroke="currentColor"
+                              strokeWidth="4"
+                            ></circle>
+                            <path
+                              className="opacity-75"
+                              fill="currentColor"
+                              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                            ></path>
+                          </svg>
+                          Sending...
+                        </span>
+                      ) : (
+                        "Send Message"
+                      )}
+                    </span>
                   </button>
                 </div>
               </form>
