@@ -245,8 +245,8 @@
     },
     {
       "id": "fidelgen_orc",
-      "title": "FidelGen OCR",
-      "description": "An Amharic OCR system trained on a combination of HUST and synthetic data, designed to recognize characters and words with high accuracy across varied styles and visual conditions.",
+      "title": "FidelGen OCR: Optical Character Recognition for Amharic Text",
+      "description": "An Amharic OCR system trained on a synthetic data, designed to recognize characters and words with high accuracy across varied styles and visual conditions.",
       "tags": [
         "ocr",
         "amharic",
@@ -263,13 +263,13 @@
         "live": ""
       },
       "image": {
-        "thumbnail": "",
+        "thumbnail": "/imgs/projects/fidelgen_orc.jpeg",
         "gallery": []
       }
     },
     {
       "id": "gensys",
-      "title": "GenSyn",
+      "title": "GenSyn: Synthetic Text on Image Data Generator",
       "description": "Synthetic text on image data generator tool for creating bulk random synthetic dataset with random text and a random color background image.",
       "tags": [
         "synthetic data",
@@ -286,8 +286,13 @@
         "live": ""
       },
       "image": {
-        "thumbnail": "",
-        "gallery": []
+        "thumbnail": "/imgs/projects/gensys.png",
+        "gallery": [
+          "/imgs/projects/gensys/gensys_01.png",
+          "/imgs/projects/gensys/gensys_02.png",
+          "/imgs/projects/gensys/gensys_03.png",
+          "/imgs/projects/gensys/gensys_04.png"
+        ]
       }
     },
     {
