@@ -132,9 +132,8 @@ export default function Projects({ projects }: ProjectsProps) {
                       <img 
                         src={project.image.thumbnail} 
                         alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-100"
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105  group-hover:opacity-100"
                       />
-                      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-bg-light dark:from-bg-dark to-transparent" />
                     </>
                   ) : (
                     <div className="w-full h-full flex items-center justify-center bg-primary-light dark:bg-primary-dark">
@@ -346,7 +345,7 @@ export default function Projects({ projects }: ProjectsProps) {
                       <h3 className="text-xs font-bold text-secondary-light dark:text-secondary-dark uppercase tracking-widest flex items-center gap-2">
                         <ImageIcon className="w-4 h-4" /> Gallery
                       </h3>
-                      <div className="flex gap-4 overflow-x-auto pb-6 snap-x no-scrollbar">
+                      <div className="flex gap-4 overflow-x-auto pb-4 snap-x gallery-scrollbar">
                         {activeProject.image.gallery.map((img, idx) => (
                           <div key={idx} className="flex-none w-80 h-48 overflow-hidden border border-primary-light dark:border-primary-dark snap-center bg-primary-light dark:bg-primary-dark">
                             <img src={img} alt={`Gallery ${idx}`} className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />

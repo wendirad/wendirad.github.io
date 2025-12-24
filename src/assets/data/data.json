@@ -21,7 +21,7 @@
       {
         "id": "telegram",
         "title": "Telegram",
-        "url":"https://t.me/zemerti"
+        "url": "https://t.me/zemerti"
       },
       {
         "id": "x",
@@ -37,7 +37,7 @@
     ],
     "photo": {
       "light": "/imgs/wendiradcom-profile-light.png",
-      "dark" : "/imgs/wendiradcom-profile-dark.png"
+      "dark": "/imgs/wendiradcom-profile-dark.png"
     },
     "cv_link": "/res/wendirad-demelash-tiku-cv.pdf"
   },
@@ -46,14 +46,17 @@
       "id": "turing_py_dev",
       "title": "Python Developer",
       "institution": {
-        "name"    : "Turing",
-        "url"     : "https://turing.com/",
-        "logo"    : "/imgs/turing_logo.png",
+        "name": "Turing",
+        "url": "https://turing.com/",
+        "logo": "/imgs/turing_logo.png",
         "location": "USA (Remote)"
       },
       "mode": "remote",
       "type": "fulltime",
-      "date_range": {"start_date": "2022-11", "end_date": "2025-11"},
+      "date_range": {
+        "start_date": "2022-11",
+        "end_date": "2025-11"
+      },
       "responsibilities": [
         "Optimized code to enhance processing speeds and reduce resource usage.",
         "Created and managed training datasets for machine learning and data analysis projects.",
@@ -64,14 +67,17 @@
       "id": "astu_ara",
       "title": "Academic and Research Assistant",
       "institution": {
-        "name"    : "Adama Science and Technology University",
-        "url"     : "https://www.astu.edu.et/",
-        "logo"    : "/imgs/astu_logo.svg",
+        "name": "Adama Science and Technology University",
+        "url": "https://www.astu.edu.et/",
+        "logo": "/imgs/astu_logo.svg",
         "location": "Adama, Ethiopia"
       },
       "mode": "on-site",
       "type": "fulltime",
-      "date_range": {"start_date": "2023-10", "end_date": "2025-07"},
+      "date_range": {
+        "start_date": "2023-10",
+        "end_date": "2025-07"
+      },
       "responsibilities": [
         "Provided tutoring and academic support to undergraduate students.",
         "Organized tutorials, labs, and academic workshops.",
@@ -82,14 +88,17 @@
       "id": "backos_cto",
       "title": "Chief Technology Officer (CTO)",
       "institution": {
-        "name"    : "Backos Technology",
-        "url"     : "https://backos.com/",
-        "logo"    : "/imgs/backos_logo.png",
+        "name": "Backos Technology",
+        "url": "https://backos.com/",
+        "logo": "/imgs/backos_logo.png",
         "location": "Adama, Ethiopia"
       },
       "mode": "on-site",
       "type": "fulltime",
-      "date_range": {"start_date": "2020-09", "end_date": "2024-01"},
+      "date_range": {
+        "start_date": "2020-09",
+        "end_date": "2024-01"
+      },
       "responsibilities": [
         "Directed technology strategies to align with business goals, fostering growth and innovation.",
         "Built and led a high-performing technical team, driving collaborative excellence.",
@@ -100,14 +109,17 @@
       "id": "astu_fullstack",
       "title": "Full Stack Web Developer",
       "institution": {
-        "name"    : "Adama Science and Technology University, CoEEC",
-        "url"     : "https://www.astu.edu.et/",
-        "logo"    : "/imgs/astu_logo.svg",
+        "name": "Adama Science and Technology University, CoEEC",
+        "url": "https://www.astu.edu.et/",
+        "logo": "/imgs/astu_logo.svg",
         "location": "Adama, Ethiopia"
       },
       "mode": "on-site",
       "type": "contract",
-      "date_range": {"start_date": "2022-05", "end_date": "2022-10"},
+      "date_range": {
+        "start_date": "2022-05",
+        "end_date": "2022-10"
+      },
       "responsibilities": [
         "Led the creation of a store management system to digitize inventory management and enhance operational efficiency.",
         "Focused on stock balance verification and report analytics with a user-friendly interface."
@@ -117,14 +129,17 @@
       "id": "divergent_fulstack",
       "title": "Full Stack Web Developer",
       "institution": {
-        "name"    : "Divergent Technology",
-        "url"     : "https://divergent.com/",
-        "logo"    : "/imgs/divergent_logo.png",
+        "name": "Divergent Technology",
+        "url": "https://divergent.com/",
+        "logo": "/imgs/divergent_logo.png",
         "location": "Adama, Ethiopia"
       },
       "mode": "on-site",
       "type": "contract",
-      "date_range": {"start_date": "2022-02", "end_date": "2022-07"},
+      "date_range": {
+        "start_date": "2022-02",
+        "end_date": "2022-07"
+      },
       "responsibilities": [
         "Developed a comprehensive web solution for AI and Machine Learning education.",
         "Built features such as blog management and content management using Python/Django and PostgreSQL.",
@@ -135,14 +150,17 @@
       "id": "backos_fullstack",
       "title": "Fullstack Developer",
       "institution": {
-        "name"    : "Backos Technology",
-        "url"     : "https://backos.com/",
-        "logo"    : "/imgs/backos_logo.png",
+        "name": "Backos Technology",
+        "url": "https://backos.com/",
+        "logo": "/imgs/backos_logo.png",
         "location": "Adama, Ethiopia"
       },
       "mode": "on-site",
       "type": "fulltime",
-      "date_range": {"start_date": "2020-01", "end_date": "2020-08"},
+      "date_range": {
+        "start_date": "2020-01",
+        "end_date": "2020-08"
+      },
       "responsibilities": [
         "Developed robust and scalable software solutions, incorporating both front-end and back-end technologies.",
         "Collaborated with designers and product managers to deliver user-centric solutions."
@@ -155,12 +173,15 @@
       "degree": "msc",
       "major": "Computer Science and Engineering",
       "institution": {
-        "name"    : "Adama Science and Technology University",
-        "url"     : "https://www.astu.edu.et/",
-        "logo"    : "/imgs/astu_logo.svg",
+        "name": "Adama Science and Technology University",
+        "url": "https://www.astu.edu.et/",
+        "logo": "/imgs/astu_logo.svg",
         "location": "Adama, Ethiopia"
       },
-      "date_range": {"start_date": "2023-12", "end_date": "2025-06"},
+      "date_range": {
+        "start_date": "2023-12",
+        "end_date": "2025-06"
+      },
       "gpa": "4/4",
       "notes": "Specialized in Computer Vision"
     },
@@ -169,12 +190,15 @@
       "degree": "bsc",
       "major": "Computer Science and Engineering & Electronics and Communication Engineering",
       "institution": {
-        "name"    : "Adama Science and Technology University",
-        "url"     : "https://www.astu.edu.et/",
-        "logo"    : "/imgs/astu_logo.svg",
+        "name": "Adama Science and Technology University",
+        "url": "https://www.astu.edu.et/",
+        "logo": "/imgs/astu_logo.svg",
         "location": "Adama, Ethiopia"
       },
-      "date_range": {"start_date": "2018-10", "end_date": "2023-07"},
+      "date_range": {
+        "start_date": "2018-10",
+        "end_date": "2023-07"
+      },
       "gpa": "3.6/4"
     }
   ],
@@ -182,99 +206,252 @@
     {
       "id": "fidelgen_thesis",
       "title": "FidelGen: Visual Amharic Text Generation Using a Multi-Conditional Diffusion Model",
-      "description": "A diffusion based text to image generation system that uses structured conditioning inputs and parallel cross attention, trained with pixel and OCR losses and a progressive strategy to produce visually accurate and text aligned images for Amharic script.",
+      "description": "A diffusion-based text-to-image generation model focused on achieving high semantic fidelity and visual quality for Amharic scripts. The project pioneers a structured multi-conditioning framework and employs targeted loss functions to ensure precise alignment between textual descriptions and synthesized images, validated through both quantitative metrics and qualitative analysis.",
       "tags": [
-        "diffusion model", "text to image",   "amharic",
-        "ocr",             "cross attention", "generative ai",
-        "deep learning",   "computer vision"
+        "diffusion model",
+        "text to image",
+        "amharic",
+        "ocr",
+        "cross attention",
+        "generative ai",
+        "deep learning",
+        "computer vision"
       ],
       "tools": [
-        "Python",      "PyTorch",     "HuggingFace", "OpenCV",
-        "NumPy",       "Pandas"
+        "Python",
+        "PyTorch",
+        "HuggingFace",
+        "OpenCV",
+        "NumPy",
+        "Pandas"
       ],
-      "link": {"repo": "", "live": ""},
-      "image": {"thumbnail": "", "gallery": []}
+      "link": {
+        "repo": "",
+        "live": ""
+      },
+      "image": {
+        "thumbnail": "/imgs/projects/fidelgen_thesis.png",
+        "gallery": [
+          "/imgs/projects/fidelgen_thesis/fidelgen_thesis_opt_01.png",
+          "/imgs/projects/fidelgen_thesis/fidelgen_thesis_opt_02.png",
+          "/imgs/projects/fidelgen_thesis/fidelgen_thesis_opt_03.png",
+          "/imgs/projects/fidelgen_thesis/fidelgen_thesis_opt_04.png",
+          "/imgs/projects/fidelgen_thesis/fidelgen_thesis_opt_05.png",
+          "/imgs/projects/fidelgen_thesis/fidelgen_thesis_opt_06.png",
+          "/imgs/projects/fidelgen_thesis/fidelgen_thesis_opt_07.png",
+          "/imgs/projects/fidelgen_thesis/fidelgen_thesis_opt_08.png"
+        ]
+      }
     },
     {
       "id": "fidelgen_orc",
       "title": "FidelGen OCR",
       "description": "An Amharic OCR system trained on a combination of HUST and synthetic data, designed to recognize characters and words with high accuracy across varied styles and visual conditions.",
-      "tags": ["ocr", "amharic", "computer vision", "deep learning"],
-      "tools": ["Python", "PyTorch", "OpenCV"],
-      "link": {"repo": "", "live": ""},
-      "image": {"thumbnail": "", "gallery": []}
+      "tags": [
+        "ocr",
+        "amharic",
+        "computer vision",
+        "deep learning"
+      ],
+      "tools": [
+        "Python",
+        "PyTorch",
+        "OpenCV"
+      ],
+      "link": {
+        "repo": "",
+        "live": ""
+      },
+      "image": {
+        "thumbnail": "",
+        "gallery": []
+      }
     },
     {
       "id": "gensys",
       "title": "GenSyn",
       "description": "Synthetic text on image data generator tool for creating bulk random synthetic dataset with random text and a random color background image.",
-      "tags": ["synthetic data", "data generation", "computer vision"],
-      "tools": ["Python", "Pillow", "OpenCV"],
-      "link": {"repo": "", "live": ""},
-      "image": {"thumbnail": "", "gallery": []}
+      "tags": [
+        "synthetic data",
+        "data generation",
+        "computer vision"
+      ],
+      "tools": [
+        "Python",
+        "Pillow",
+        "OpenCV"
+      ],
+      "link": {
+        "repo": "",
+        "live": ""
+      },
+      "image": {
+        "thumbnail": "",
+        "gallery": []
+      }
     },
     {
       "id": "drough_prediction",
       "title": "Drought Prediction Using Hybrid CNN-LSTM",
       "description": "A Python-based drought prediction model combining CNN and LSTM for temporal modeling on preprocessed climate data to accurately forecast drought occurrences in Ethiopia regions.",
-      "tags": ["cnn", "lstm", "time series", "climate", "ml"],
-      "tools": ["Python", "TensorFlow", "NumPy", "Pandas"],
-      "link": {"repo": "", "live": ""},
-      "image": {"thumbnail": "", "gallery": []}
+      "tags": [
+        "cnn",
+        "lstm",
+        "time series",
+        "climate",
+        "ml"
+      ],
+      "tools": [
+        "Python",
+        "TensorFlow",
+        "NumPy",
+        "Pandas"
+      ],
+      "link": {
+        "repo": "",
+        "live": ""
+      },
+      "image": {
+        "thumbnail": "",
+        "gallery": []
+      }
     },
     {
       "id": "rebuni_mms",
       "title": "Rebuni Media Monitoring System",
       "description": "Developed a comprehensive system for analyzing social media and broadcast media engagements, supporting strategic decision-making through advanced data analysis.",
-      "tags": ["media monitoring", "data analysis", "dashboard"],
-      "tools": ["Python", "MongoDB", "Flask", "React"],
-      "link": {"repo": "", "live": ""},
-      "image": {"thumbnail": "", "gallery": []}
+      "tags": [
+        "media monitoring",
+        "data analysis",
+        "dashboard"
+      ],
+      "tools": [
+        "Python",
+        "MongoDB",
+        "Flask",
+        "React"
+      ],
+      "link": {
+        "repo": "",
+        "live": ""
+      },
+      "image": {
+        "thumbnail": "",
+        "gallery": []
+      }
     },
     {
       "id": "yenepay",
       "title": "YenePay Python SDK",
       "description": "Created an open-source Python library for seamless YenePay payment integration, demonstrating expertise in Python and version control.",
-      "tags": ["sdk", "payments", "python"],
-      "tools": ["Python"],
-      "link": {"repo": "", "live": ""},
-      "image": {"thumbnail": "", "gallery": []}
+      "tags": [
+        "sdk",
+        "payments",
+        "python"
+      ],
+      "tools": [
+        "Python"
+      ],
+      "link": {
+        "repo": "",
+        "live": ""
+      },
+      "image": {
+        "thumbnail": "",
+        "gallery": []
+      }
     },
     {
       "id": "postcard_bot",
       "title": "Postcard Bot",
       "description": "Designed a Telegram bot for generating digital postcards, showcasing interactive digital solutions using Python and MongoDB.",
-      "tags": ["telegram bot", "automation", "python"],
-      "tools": ["Python", "MongoDB", "Telegram API"],
-      "link": {"repo": "", "live": ""},
-      "image": {"thumbnail": "", "gallery": []}
+      "tags": [
+        "telegram bot",
+        "automation",
+        "python"
+      ],
+      "tools": [
+        "Python",
+        "MongoDB",
+        "Telegram API"
+      ],
+      "link": {
+        "repo": "",
+        "live": ""
+      },
+      "image": {
+        "thumbnail": "",
+        "gallery": []
+      }
     },
     {
       "id": "astu_store",
       "title": "SoEEC Store Management System",
       "description": "Developed a web-based store management system to digitize and streamline inventory processes for Adama Science and Technology University, CoEEC.",
-      "tags": ["inventory", "management system", "web app"],
-      "tools": ["Python", "Django", "PostgreSQL"],
-      "link": {"repo": "", "live": ""},
-      "image": {"thumbnail": "", "gallery": []}
+      "tags": [
+        "inventory",
+        "management system",
+        "web app"
+      ],
+      "tools": [
+        "Python",
+        "Django",
+        "PostgreSQL"
+      ],
+      "link": {
+        "repo": "",
+        "live": ""
+      },
+      "image": {
+        "thumbnail": "",
+        "gallery": []
+      }
     },
     {
       "id": "divergent_cms",
       "title": "Divergent Technologies Web Solution",
       "description": "Created a comprehensive web solution for AI and Machine Learning education, focusing on dynamic content management and cloud deployment.",
-      "tags": ["web", "cloud", "education"],
-      "tools": ["React", "Node", "Firebase"],
-      "link": {"repo": "", "live": ""},
-      "image": {"thumbnail": "", "gallery": []}
+      "tags": [
+        "web",
+        "cloud",
+        "education"
+      ],
+      "tools": [
+        "React",
+        "Node",
+        "Firebase"
+      ],
+      "link": {
+        "repo": "",
+        "live": ""
+      },
+      "image": {
+        "thumbnail": "",
+        "gallery": []
+      }
     },
     {
       "id": "tena_eticket",
       "title": "Tena eTicket",
       "description": "Built a transport route and ticket administration platform to enhance organization in Ethiopia’s transportation system.",
-      "tags": ["transport", "ticketing", "web app"],
-      "tools": ["Flutter", "Firebase", "Node"],
-      "link": {"repo": "", "live": ""},
-      "image": {"thumbnail": "", "gallery": []}
+      "tags": [
+        "transport",
+        "ticketing",
+        "web app"
+      ],
+      "tools": [
+        "Flutter",
+        "Firebase",
+        "Node"
+      ],
+      "link": {
+        "repo": "",
+        "live": ""
+      },
+      "image": {
+        "thumbnail": "",
+        "gallery": []
+      }
     }
   ],
   "skills": {
@@ -343,25 +520,42 @@
             "id": "mysql",
             "label": "MySQL",
             "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
-            "tags": ["Database", "SQL", "Relational Database"]
+            "tags": [
+              "Database",
+              "SQL",
+              "Relational Database"
+            ]
           },
           {
             "id": "postgresql",
             "label": "PostgreSQL",
             "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
-            "tags": ["Database", "SQL", "Relational Database"]
+            "tags": [
+              "Database",
+              "SQL",
+              "Relational Database"
+            ]
           },
           {
             "id": "mongodb",
             "label": "MongoDB",
             "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
-            "tags": ["Database", "NoSQL", "Document Store"]
+            "tags": [
+              "Database",
+              "NoSQL",
+              "Document Store"
+            ]
           },
           {
             "id": "firebase_firestore",
             "label": "Firebase Firestore",
             "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
-            "tags": ["Database", "NoSQL", "Cloud", "Realtime Database"]
+            "tags": [
+              "Database",
+              "NoSQL",
+              "Cloud",
+              "Realtime Database"
+            ]
           }
         ]
       },
@@ -374,19 +568,35 @@
             "id": "pytorch",
             "label": "PyTorch",
             "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg",
-            "tags": ["Library", "AI", "ML", "Computer Vision", "Deep Learning"]
+            "tags": [
+              "Library",
+              "AI",
+              "ML",
+              "Computer Vision",
+              "Deep Learning"
+            ]
           },
           {
             "id": "tensorflow",
             "label": "TensorFlow",
             "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg",
-            "tags": ["Library", "AI", "ML", "Deep Learning"]
+            "tags": [
+              "Library",
+              "AI",
+              "ML",
+              "Deep Learning"
+            ]
           },
           {
             "id": "scikit_learn",
             "label": "Scikit Learn",
             "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg",
-            "tags": ["Library", "ML", "Data Science", "Data Analysis"]
+            "tags": [
+              "Library",
+              "ML",
+              "Data Science",
+              "Data Analysis"
+            ]
           },
           {
             "id": "scipy",
@@ -404,7 +614,9 @@
             "label": "Pandas",
             "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg",
             "tags": [
-              "Library",           "Data Analysis",     "Data Science",
+              "Library",
+              "Data Analysis",
+              "Data Science",
               "Data Manipulation"
             ]
           },
@@ -423,13 +635,22 @@
             "id": "matplotlib",
             "label": "Matplotlib",
             "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matplotlib/matplotlib-original.svg",
-            "tags": ["Library", "Data Visualization", "Data Science"]
+            "tags": [
+              "Library",
+              "Data Visualization",
+              "Data Science"
+            ]
           },
           {
             "id": "aiogram",
             "label": "Aiogram",
             "icon": "https://avatars.githubusercontent.com/u/33784865?s=200&v=4",
-            "tags": ["Library", "Bot Development", "Telegram", "Python"]
+            "tags": [
+              "Library",
+              "Bot Development",
+              "Telegram",
+              "Python"
+            ]
           }
         ]
       },
@@ -442,22 +663,35 @@
             "id": "django",
             "label": "Django",
             "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg",
-            "tags": ["Framework", "Web Development", "Backend", "Python"]
+            "tags": [
+              "Framework",
+              "Web Development",
+              "Backend",
+              "Python"
+            ]
           },
           {
             "id": "django_rest_framework",
             "label": "Django Rest Framework",
             "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/djangorest/djangorest-original.svg",
             "tags": [
-              "Framework",       "API Development", "Backend",
-              "Web Development", "Python"
+              "Framework",
+              "API Development",
+              "Backend",
+              "Web Development",
+              "Python"
             ]
           },
           {
             "id": "flutter",
             "label": "Flutter",
             "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
-            "tags": ["Framework", "Mobile Development", "Dart", "Frontend"]
+            "tags": [
+              "Framework",
+              "Mobile Development",
+              "Dart",
+              "Frontend"
+            ]
           }
         ]
       },
@@ -470,13 +704,21 @@
             "id": "git",
             "label": "Git",
             "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
-            "tags": ["DevOps", "Version Control", "Tool"]
+            "tags": [
+              "DevOps",
+              "Version Control",
+              "Tool"
+            ]
           },
           {
             "id": "docker",
             "label": "Docker",
             "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
-            "tags": ["DevOps", "Containerization", "Tool"]
+            "tags": [
+              "DevOps",
+              "Containerization",
+              "Tool"
+            ]
           }
         ]
       },
@@ -489,25 +731,43 @@
             "id": "vs_code",
             "label": "VS Code",
             "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",
-            "tags": ["IDE", "Editor", "Tool"]
+            "tags": [
+              "IDE",
+              "Editor",
+              "Tool"
+            ]
           },
           {
             "id": "pycharm",
             "label": "PyCharm",
             "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pycharm/pycharm-original.svg",
-            "tags": ["IDE", "Editor", "Python", "Tool"]
+            "tags": [
+              "IDE",
+              "Editor",
+              "Python",
+              "Tool"
+            ]
           },
           {
             "id": "jupyter_notebook",
             "label": "Jupyter Notebook",
             "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original-wordmark.svg",
-            "tags": ["IDE", "Notebook", "Data Science", "Tool"]
+            "tags": [
+              "IDE",
+              "Notebook",
+              "Data Science",
+              "Tool"
+            ]
           },
           {
             "id": "vim",
             "label": "Vim",
             "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vim/vim-original.svg",
-            "tags": ["Editor", "IDE", "Tool"]
+            "tags": [
+              "Editor",
+              "IDE",
+              "Tool"
+            ]
           }
         ]
       },
@@ -520,19 +780,28 @@
             "id": "linux",
             "label": "Linux",
             "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg",
-            "tags": ["Operating System", "OS"]
+            "tags": [
+              "Operating System",
+              "OS"
+            ]
           },
           {
             "id": "windows",
             "label": "Windows",
             "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows11/windows11-original.svg",
-            "tags": ["Operating System", "OS"]
+            "tags": [
+              "Operating System",
+              "OS"
+            ]
           },
           {
             "id": "macos",
             "label": "macOS",
             "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg",
-            "tags": ["Operating System", "OS"]
+            "tags": [
+              "Operating System",
+              "OS"
+            ]
           }
         ]
       }
@@ -543,7 +812,12 @@
         "label": "Soft Skills",
         "icon": null,
         "skills": [
-          {"id": "teamwork", "label": "Teamwork", "icon": "https://api.iconify.design/fa6-solid/users.svg?color=%233B82F6", "tags": []},
+          {
+            "id": "teamwork",
+            "label": "Teamwork",
+            "icon": "https://api.iconify.design/fa6-solid/users.svg?color=%233B82F6",
+            "tags": []
+          },
           {
             "id": "leadership",
             "label": "Leadership",
@@ -603,7 +877,11 @@
       "description": "Earned for significant contributions to data science projects on Zindi, demonstrating expertise in data analysis and machine learning algorithms.",
       "date": "2022-08",
       "issuer": "Zindi",
-      "tags": ["data science", "machine learning", "competition"],
+      "tags": [
+        "data science",
+        "machine learning",
+        "competition"
+      ],
       "link": "",
       "image": ""
     }
@@ -614,9 +892,9 @@
       "name": "Mr. John Doe",
       "position": "Team Lead",
       "institution": {
-        "name"    : "Rebuni Media",
-        "url"     : "",
-        "logo"    : "",
+        "name": "Rebuni Media",
+        "url": "",
+        "logo": "",
         "location": ""
       },
       "email": "john.doe@rebuni.com",
