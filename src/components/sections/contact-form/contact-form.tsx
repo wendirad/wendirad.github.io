@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { trackClarityEvent } from "../../../utils/clarity";
 
-const PAGECLIP_ENDPOINT = "https://send.pageclip.co/a5HGRacYuWURQ0S9rLNLxExE5WhiufFk/contact-form";
+const FORM_ENDPOINT = "tele-forms.wendirad.com/Pyr1UufknHh9/contact-form-main";
 
 export default function ContactForm() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -75,7 +75,7 @@ export default function ContactForm() {
 
       const formDataToSend = new FormData(formRef.current);
 
-      const response = await fetch(PAGECLIP_ENDPOINT, {
+      const response = await fetch(FORM_ENDPOINT, {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -156,7 +156,7 @@ export default function ContactForm() {
                 ref={formRef}
                 onSubmit={handleSubmit}
                 className="space-y-4 pageclip-form"
-                action={PAGECLIP_ENDPOINT}
+                action={FORM_ENDPOINT}
                 method="post"
               >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
