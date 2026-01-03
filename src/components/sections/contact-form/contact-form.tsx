@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { trackClarityEvent } from "../../../utils/clarity";
 
-const FORM_ENDPOINT = "tele-forms.wendirad.com/Pyr1UufknHh9/contact-form-main";
+const FORM_ENDPOINT = "https://tele-forms.wendirad.com/Pyr1UufknHh9/contact-form-main";
 
 export default function ContactForm() {
   const sectionRef = useRef<HTMLElement>(null);
