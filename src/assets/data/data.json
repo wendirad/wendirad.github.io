@@ -206,7 +206,7 @@
     {
       "id": "tele_forms",
       "title": "TeleForms: Seamless Telegram Form Submission Tool",
-      "description": "A no-code tool for creating embeddable web forms that deliver submissions instantly to Telegram chats via a bot. Enables zero-JS integration, unlimited forms with unique URLs, and private notifications without accounts or email setup.",
+      "description": "A no-code tool for creating embeddable web forms that deliver submissions instantly to Telegram chats via a bot. Enables zero-JS integration, unlimited forms, and private notifications without accounts or email setup.",
       "tags": [
         "telegram",
         "forms",
@@ -230,6 +230,33 @@
       },
       "image": {
         "thumbnail": "/imgs/projects/tele_forms/tele-forms-logo.jpg",
+        "gallery": []
+      }
+    },
+    {
+      "id": "iptv_player",
+      "title": "IPTV Player: Web-Based IPTV Streaming App",
+      "description": "Web application for playing IPTV streams directly in the browser, supporting M3U/M3U8 playlists for live TV and video-on-demand content.",
+      "tags": [
+        "iptv",
+        "react",
+        "web player",
+        "m3u",
+        "streaming",
+        "video player",
+        "single page app",
+        "javascript"
+      ],
+      "tools": [
+        "React",
+        "JavaScript"
+      ],
+      "link": {
+        "repo": "https://github.com/wendirad/iptv-player",
+        "live": "https://iptv-player.wendirad.com"
+      },
+      "image": {
+        "thumbnail": "/imgs/projects/iptv_player/iptv_player.png",
         "gallery": []
       }
     },
