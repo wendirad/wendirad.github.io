@@ -204,6 +204,36 @@
   ],
   "projects": [
     {
+      "id": "tele_forms",
+      "title": "TeleForms: Seamless Telegram Form Submission Tool",
+      "description": "A no-code tool for creating embeddable web forms that deliver submissions instantly to Telegram chats via a bot. Enables zero-JS integration, unlimited forms with unique URLs, and private notifications without accounts or email setup.",
+      "tags": [
+        "telegram",
+        "forms",
+        "web integration",
+        "telegram bot",
+        "notifications",
+        "no-code",
+        "embeddable forms",
+        "web development"
+      ],
+      "tools": [
+        "Python",
+        "FastAPI",
+        "MongoDB",
+        "Docker",
+        "Telegram Bot API"
+      ],
+      "link": {
+        "repo": "https://github.com/wendirad/tele-forms",
+        "live": "https://tele-forms.wendirad.com"
+      },
+      "image": {
+        "thumbnail": "/imgs/projects/tele_forms/tele-forms-logo.jpg",
+        "gallery": []
+      }
+    },
+    {
       "id": "fidelgen_thesis",
       "title": "FidelGen: Visual Amharic Text Generation Using a Multi-Conditional Diffusion Model",
       "description": "A diffusion-based text-to-image generation model focused on achieving high semantic fidelity and visual quality for Amharic scripts. The project pioneers a structured multi-conditioning framework and employs targeted loss functions to ensure precise alignment between textual descriptions and synthesized images, validated through both quantitative metrics and qualitative analysis.",
