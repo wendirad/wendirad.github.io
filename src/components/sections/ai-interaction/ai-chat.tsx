@@ -11,7 +11,7 @@ interface AIChatProps {
 // API Helper
 const callRAGAPI = async (message: string): Promise<string | null> => {
   const baseURL = "https://wendiradcom-ai-pitcher.vercel.app";
-  
+
   try {
     let retries = 0;
     const maxRetries = 3;
@@ -45,10 +45,20 @@ const callRAGAPI = async (message: string): Promise<string | null> => {
   }
 };
 
+const COMMON_QUESTIONS = [
+  "Which roles your are a great fit for?",
+  "Summarize your experience in two sentences.",
+  "What are your strongest technical skills?",
+  "How have you led or mentored teams?",
+  "Which projects best show your impact?",
+];
+
 export default function AIChat({ userData }: AIChatProps) {
   const { isDark } = useTheme();
   const [input, setInput] = useState("");
-  const [messages, setMessages] = useState<Array<{ role: "user" | "ai"; text: string }>>([]);
+  const [messages, setMessages] = useState<
+    Array<{ role: "user" | "ai"; text: string }>
+  >([]);
   const [loading, setLoading] = useState(false);
   const scrollEnd = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -57,26 +67,31 @@ export default function AIChat({ userData }: AIChatProps) {
   useEffect(() => {
     // Only scroll when there are messages, not on initial mount
     if (scrollEnd.current && messages.length > 0) {
-      scrollEnd.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      scrollEnd.current.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+      });
     }
   }, [messages, loading]);
 
-  const handleAsk = async (e?: React.FormEvent | React.MouseEvent) => {
+  const handleAsk = async (
+    e?: React.FormEvent | React.MouseEvent,
+    presetMessage?: string,
+  ) => {
     e?.preventDefault();
     e?.stopPropagation();
-    if (!input.trim() || loading) return;
-    
-    const userMsg = input.trim();
-    
+    const userMsg = (presetMessage ?? input).trim();
+    if (!userMsg || loading) return;
+
     // Track first interaction
     if (!hasInteractedRef.current) {
       trackClarityEvent("chat-first-interaction");
       hasInteractedRef.current = true;
     }
-    
+
     // Track message sent
     trackClarityEvent("chat-message-sent");
-    
+
     setInput("");
     setMessages((prev) => [...prev, { role: "user", text: userMsg }]);
     setLoading(true);
@@ -107,12 +122,16 @@ export default function AIChat({ userData }: AIChatProps) {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-[2.5rem] flex flex-col h-[500px] shadow-xl overflow-hidden border border-secondary-light/30 dark:border-secondary-dark/30">
+    <div className="bg-white dark:bg-gray-800 rounded-[2.5rem] flex flex-col h-[500px] shadow-2xl ring-1 ring-tertiary-light/20 dark:ring-tertiary-dark/20 overflow-hidden border border-secondary-light/40 dark:border-secondary-dark/40">
       {/* Chat Header */}
       <div className="bg-secondary-light/10 dark:bg-secondary-dark/10 px-6 py-4 border-b border-secondary-light/20 dark:border-secondary-dark/20">
         <div className="flex items-center gap-3">
           <img
-            src={isDark ? userData.personalInformation.photo.dark : userData.personalInformation.photo.light}
+            src={
+              isDark
+                ? userData.personalInformation.photo.dark
+                : userData.personalInformation.photo.light
+            }
             alt={userData.personalInformation.name}
             className="w-10 h-10 rounded-full object-cover border-2 border-tertiary-light/30 dark:border-tertiary-dark/30"
           />
@@ -131,17 +150,48 @@ export default function AIChat({ userData }: AIChatProps) {
       </div>
 
       {/* Messages Area */}
-      <div className="flex-grow overflow-y-auto px-4 py-6 space-y-3 no-scrollbar bg-gray-50/50 dark:bg-gray-900/50">
+      <div className="flex-grow overflow-y-auto px-4 py-6 space-y-4 no-scrollbar bg-gray-50/50 dark:bg-gray-900/50">
         {messages.length === 0 && (
           <div className="flex flex-col items-center justify-center h-full text-center px-4">
             <img
-              src={isDark ? userData.personalInformation.photo.dark : userData.personalInformation.photo.light}
+              src={
+                isDark
+                  ? userData.personalInformation.photo.dark
+                  : userData.personalInformation.photo.light
+              }
               alt={userData.personalInformation.name}
               className="w-16 h-16 rounded-full object-cover mb-4 border-2 border-tertiary-light/30 dark:border-tertiary-dark/30"
             />
             <p className="text-secondary-light dark:text-secondary-dark text-sm max-w-xs">
-              Ask me anything about Wendirad's skills, background, or how he can help your team.
+              Ask me anything about My's skills, background, or how he can help
+              your team.
             </p>
+            <div className="mt-4 flex flex-wrap justify-center gap-2 max-w-lg px-1 py-1">
+              {COMMON_QUESTIONS.map((question) => (
+                <button
+                  key={question}
+                  type="button"
+                  className="px-3 py-2 text-xs md:text-[13px] rounded-full bg-white dark:bg-gray-800 border border-secondary-light/30 dark:border-secondary-dark/30 text-gray-700 dark:text-gray-200 hover:border-tertiary-light dark:hover:border-tertiary-dark hover:shadow-md transition-all"
+                  onClick={(ev) => handleAsk(ev, question)}
+                >
+                  {question}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+        {messages.length > 0 && (
+          <div className="flex flex-wrap gap-2 px-1 py-1">
+            {COMMON_QUESTIONS.map((question) => (
+              <button
+                key={question}
+                type="button"
+                className="px-3 py-2 text-xs md:text-[13px] rounded-full bg-white dark:bg-gray-800 border border-secondary-light/30 dark:border-secondary-dark/30 text-gray-700 dark:text-gray-200 hover:border-tertiary-light dark:hover:border-tertiary-dark hover:shadow-md transition-all"
+                onClick={(ev) => handleAsk(ev, question)}
+              >
+                {question}
+              </button>
+            ))}
           </div>
         )}
         {messages.map((m, i) => (
@@ -151,7 +201,11 @@ export default function AIChat({ userData }: AIChatProps) {
           >
             {m.role === "ai" && (
               <img
-                src={isDark ? userData.personalInformation.photo.dark : userData.personalInformation.photo.light}
+                src={
+                  isDark
+                    ? userData.personalInformation.photo.dark
+                    : userData.personalInformation.photo.light
+                }
                 alt={userData.personalInformation.name}
                 className="w-8 h-8 rounded-full object-cover flex-shrink-0 border border-secondary-light/30 dark:border-secondary-dark/30"
               />
@@ -163,14 +217,24 @@ export default function AIChat({ userData }: AIChatProps) {
                   : "bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-bl-sm border border-secondary-light/20 dark:border-secondary-dark/20 shadow-sm"
               }`}
             >
-              <div className={`prose prose-sm max-w-none ${m.role === "user" ? "prose-invert" : "prose-gray dark:prose-invert"}`}>
+              <div
+                className={`prose prose-sm max-w-none ${m.role === "user" ? "prose-invert" : "prose-gray dark:prose-invert"}`}
+              >
                 <ReactMarkdown
                   components={{
-                    p: ({ children }) => <p className="mb-0 leading-relaxed">{children}</p>,
-                    ul: ({ children }) => <ul className="mb-0 pl-4">{children}</ul>,
-                    ol: ({ children }) => <ol className="mb-0 pl-4">{children}</ol>,
+                    p: ({ children }) => (
+                      <p className="mb-0 leading-relaxed">{children}</p>
+                    ),
+                    ul: ({ children }) => (
+                      <ul className="mb-0 pl-4">{children}</ul>
+                    ),
+                    ol: ({ children }) => (
+                      <ol className="mb-0 pl-4">{children}</ol>
+                    ),
                     li: ({ children }) => <li className="mb-1">{children}</li>,
-                    strong: ({ children }) => <strong className="font-bold">{children}</strong>,
+                    strong: ({ children }) => (
+                      <strong className="font-bold">{children}</strong>
+                    ),
                   }}
                 >
                   {m.text}
@@ -189,7 +253,11 @@ export default function AIChat({ userData }: AIChatProps) {
         {loading && (
           <div className="flex items-end gap-2 justify-start animate-fade-in">
             <img
-              src={isDark ? userData.personalInformation.photo.dark : userData.personalInformation.photo.light}
+              src={
+                isDark
+                  ? userData.personalInformation.photo.dark
+                  : userData.personalInformation.photo.light
+              }
               alt={userData.personalInformation.name}
               className="w-8 h-8 rounded-full object-cover flex-shrink-0 border border-secondary-light/30 dark:border-secondary-dark/30"
             />
@@ -199,9 +267,18 @@ export default function AIChat({ userData }: AIChatProps) {
                   Typing
                 </span>
                 <div className="flex gap-1">
-                  <div className="w-1.5 h-1.5 bg-secondary-light dark:bg-secondary-dark rounded-full animate-bounce" style={{ animationDelay: "0ms" }}></div>
-                  <div className="w-1.5 h-1.5 bg-secondary-light dark:bg-secondary-dark rounded-full animate-bounce" style={{ animationDelay: "150ms" }}></div>
-                  <div className="w-1.5 h-1.5 bg-secondary-light dark:bg-secondary-dark rounded-full animate-bounce" style={{ animationDelay: "300ms" }}></div>
+                  <div
+                    className="w-1.5 h-1.5 bg-secondary-light dark:bg-secondary-dark rounded-full animate-bounce"
+                    style={{ animationDelay: "0ms" }}
+                  ></div>
+                  <div
+                    className="w-1.5 h-1.5 bg-secondary-light dark:bg-secondary-dark rounded-full animate-bounce"
+                    style={{ animationDelay: "150ms" }}
+                  ></div>
+                  <div
+                    className="w-1.5 h-1.5 bg-secondary-light dark:bg-secondary-dark rounded-full animate-bounce"
+                    style={{ animationDelay: "300ms" }}
+                  ></div>
                 </div>
               </div>
             </div>
@@ -230,7 +307,10 @@ export default function AIChat({ userData }: AIChatProps) {
               onChange={(e) => {
                 setInput(e.target.value);
                 // Track when user starts typing (first time only)
-                if (!hasInteractedRef.current && e.target.value.trim().length > 0) {
+                if (
+                  !hasInteractedRef.current &&
+                  e.target.value.trim().length > 0
+                ) {
                   trackClarityEvent("chat-input-focused");
                 }
               }}
@@ -246,7 +326,9 @@ export default function AIChat({ userData }: AIChatProps) {
                   handleAsk(e);
                 }
               }}
-              placeholder={loading ? "Waiting for response..." : "Type a message..."}
+              placeholder={
+                loading ? "Waiting for response..." : "Type a message..."
+              }
               disabled={loading}
               className="flex-1 bg-transparent outline-none text-sm text-gray-900 dark:text-gray-100 placeholder-secondary-light dark:placeholder-secondary-dark disabled:opacity-50 disabled:cursor-not-allowed transition-opacity"
             />
@@ -282,13 +364,15 @@ export default function AIChat({ userData }: AIChatProps) {
                 />
               </svg>
             ) : (
-              <svg
-                className="w-6 h-6"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                 <defs>
-                  <linearGradient id="send-gradient" x1="0" y1="0" x2="1" y2="1">
+                  <linearGradient
+                    id="send-gradient"
+                    x1="0"
+                    y1="0"
+                    x2="1"
+                    y2="1"
+                  >
                     <stop offset="0%" stopColor="#98AAFD" />
                     <stop offset="100%" stopColor="#34D8C0" />
                   </linearGradient>
@@ -305,4 +389,3 @@ export default function AIChat({ userData }: AIChatProps) {
     </div>
   );
 }
-
