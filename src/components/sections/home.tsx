@@ -12,6 +12,7 @@ import GitHubIcon from "../icons/social/github";
 import LinkedInIcon from "../icons/social/linked-in";
 import TelegramIcon from "../icons/social/telegram";
 import XIcon from "../icons/social/x";
+import AIIcon from "../icons/ai";
 
 function Home({ pi }: { pi: PersonalInformation }) {
   const socialIcons: Record<string, JSX.Element> = {
@@ -89,7 +90,9 @@ function Home({ pi }: { pi: PersonalInformation }) {
                     rel="noopener noreferrer"
                     title={social_link.title}
                     className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
-                    onClick={() => trackClarityEvent(`social-link-click-${social_link.id}`)}
+                    onClick={() =>
+                      trackClarityEvent(`social-link-click-${social_link.id}`)
+                    }
                   >
                     {socialIcons[social_link.id]}
                   </a>
@@ -132,6 +135,14 @@ function Home({ pi }: { pi: PersonalInformation }) {
               >
                 <DownloadIcon />
                 Download CV
+              </a>
+              <a
+                href="#about"
+                className="px-6 py-3 bg-gray-900 dark:bg-gray-100 text-gray-100 dark:text-gray-900 rounded-lg font-semibold text-center hover:bg-transparent dark:hover:bg-gray-900 hover:border-2 hover:border-gray-900 dark:hover:border-gray-100 hover:text-gray-900 dark:hover:text-gray-100 transition-all duration-200 flex items-center justify-center gap-2"
+                onClick={() => trackClarityEvent("home-ai-pitch-click")}
+              >
+                <AIIcon />
+                AI Pitch
               </a>
             </div>
           </div>
