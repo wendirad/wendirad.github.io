@@ -41,10 +41,30 @@ export default function SkillGroupCard({
                 trackClarityEvent(`skill-card-click-${skill.id}`);
               }
             }}
-            className={`group flex flex-col items-center p-4 bg-secondary-light/30 dark:bg-secondary-dark/30 border border-secondary-light/30 dark:border-secondary-dark/30 rounded-2xl hover:border-tertiary-light dark:hover:border-tertiary-dark hover:shadow-xl hover:shadow-secondary-light/20 dark:hover:shadow-secondary-dark/20 transition-all duration-300 ${
+            className={`group relative flex flex-col items-center p-4 bg-secondary-light/30 dark:bg-secondary-dark/30 border border-secondary-light/30 dark:border-secondary-dark/30 rounded-2xl hover:border-tertiary-light dark:hover:border-tertiary-dark hover:shadow-xl hover:shadow-secondary-light/20 dark:hover:shadow-secondary-dark/20 transition-all duration-300 ${
               shouldDim ? 'opacity-30 pointer-events-none' : 'cursor-pointer'
             }`}
           >
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                trackClarityEvent(`ai-skill-ask-${skill.id}`);
+                const question = `Summarize your experience with ${skill.label}. Include number of years, work history and projects in short.`;
+                window.dispatchEvent(
+                  new CustomEvent("ai-interaction-request", {
+                    detail: { question },
+                  }),
+                );
+                
+                window.location.href = "#about";
+              }}
+              className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-all duration-300 px-2.5 py-1 bg-white dark:bg-gray-800 border border-tertiary-light/20 dark:border-tertiary-dark/20 rounded-full shadow-lg hover:shadow-xl hover:scale-105 z-10 flex items-center gap-1.5"
+              title={`Ask AI about my experience with ${skill.label}`}
+            >
+              <span className="text-[10px] font-black tracking-widest text-tertiary-light dark:text-tertiary-dark whitespace-nowrap">
+                ASK AI
+              </span>
+            </button>
             {skill.icon ? (
               <div className="w-10 h-10 mb-3 transition-all">
               <img

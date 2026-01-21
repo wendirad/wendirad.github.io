@@ -74,6 +74,20 @@ export default function AIChat({ userData }: AIChatProps) {
     }
   }, [messages, loading]);
 
+  useEffect(() => {
+    const handleAIRequest = (event: Event) => {
+      const customEvent = event as CustomEvent<{ question: string }>;
+      const { question } = customEvent.detail;
+      handleAsk(undefined, question);
+    };
+
+    window.addEventListener("ai-interaction-request", handleAIRequest);
+
+    return () => {
+      window.removeEventListener("ai-interaction-request", handleAIRequest);
+    };
+  }, []);
+
   const handleAsk = async (
     e?: React.FormEvent | React.MouseEvent,
     presetMessage?: string,
